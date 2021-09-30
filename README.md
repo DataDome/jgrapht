@@ -97,7 +97,7 @@ To help us understand how you use JGraphT, and which features are important to y
 Starting from 0.9.0, every JGraphT release is published to the Maven Central Repository.  You can add a dependency from your project as follows:
 
 ```xml
-<groupId>org.jgrapht</groupId>
+<groupId>co.datadome</groupId>
 <artifactId>jgrapht-core</artifactId>
 <version>1.5.1</version>
 ```
@@ -105,7 +105,7 @@ Starting from 0.9.0, every JGraphT release is published to the Maven Central Rep
 We have also started auto-publishing SNAPSHOT builds for every successful commit to master.  To use the bleeding edge:
 
 ```xml
-<groupId>org.jgrapht</groupId>
+<groupId>co.datadome</groupId>
 <artifactId>jgrapht-core</artifactId>
 <version>1.5.2-SNAPSHOT</version>
 ```

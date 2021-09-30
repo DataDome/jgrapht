@@ -5,7 +5,7 @@
     <artifactId>jgrapht</artifactId>
     <packaging>pom</packaging>
     <name>JGraphT - Parent</name>
-    <version>1.5.2-SNAPSHOT</version>
+    <version>1.5.1.1</version>
     <description>A Java class library for graph-theory data structures and algorithms.</description>
     <url>http://www.jgrapht.org</url>
     <parent>
@@ -26,13 +26,13 @@
         </license>
     </licenses>
     <scm>
-        <url>https://github.com/jgrapht/jgrapht.git</url>
-        <connection>scm:git:git://github.com/jgrapht/jgrapht.git</connection>
+        <url>https://github.com/DataDome/jgrapht.git</url>
+        <connection>scm:git:git://github.com/DataDome/jgrapht.git</connection>
         <developerConnection>scm:git:git@github.com:jgrapht/jgrapht.git</developerConnection>
         <tag>jgrapht-1.5.1</tag>
     </scm>
     <issueManagement>
-        <url>https://github.com/jgrapht/jgrapht/issues</url>
+        <url>https://github.com/DataDome/jgrapht/issues</url>
     </issueManagement>
     <mailingLists>
         <mailingList>
@@ -248,10 +248,10 @@
                         <doclint>none</doclint>
                         <source>8</source>
                         <header>&lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://jgrapht.org/mathjax/mathjaxConfig.js"&gt;&lt;/script&gt;
-                        &lt;img src="https://github.com/jgrapht/jgrapht/blob/master/etc/logo/jgrapht-logo-transparent-cropped-javadocheader.png?raw=true" style="height:55px;"&gt;
+                        &lt;img src="https://github.com/DataDome/jgrapht/blob/master/etc/logo/jgrapht-logo-transparent-cropped-javadocheader.png?raw=true" style="height:55px;"&gt;
                         </header>
                         <doctitle>${project.name} ${project.version} API
-                        &lt;img src="https://github.com/jgrapht/jgrapht/blob/master/etc/logo/jgrapht-logo-transparent-cropped.png?raw=true" style="height:100px;float:right" &gt;
+                        &lt;img src="https://github.com/DataDome/jgrapht/blob/master/etc/logo/jgrapht-logo-transparent-cropped.png?raw=true" style="height:100px;float:right" &gt;
                         </doctitle>
                         <detectJavaApiLink>false</detectJavaApiLink> <!-- Temporary fix for https://stackoverflow.com/questions/58836862/jdk-11-and-javadoc -->
                         <notimestamp>true</notimestamp>
@@ -389,4 +389,16 @@
             </build>
         </profile>
     </profiles>
+
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 </project>

@@ -24,7 +24,7 @@ import java.nio.charset.*;
 
 /**
  * Interface for graph exporters
- * 
+ *
  * @param <V> the graph vertex type
  * @param <E> the graph edge type
  */
@@ -37,7 +37,7 @@ public interface GraphExporter<V, E>
      * It is the callers responsibility to ensure the {@code OutputStream} is closed after this
      * method returned.
      * </p>
-     * 
+     *
      * @param g the graph to export
      * @param out the output stream
      * @throws ExportException in case any error occurs
@@ -53,7 +53,7 @@ public interface GraphExporter<V, E>
      * It is the callers responsibility to ensure the {@code Writer} is closed after this method
      * returned.
      * </p>
-     * 
+     *
      * @param g the graph to export
      * @param writer the output writer
      * @throws ExportException in case any error occurs
@@ -62,14 +62,14 @@ public interface GraphExporter<V, E>
 
     /**
      * Export a graph to the given {@link File}.
-     * 
+     *
      * @param g the graph to export
      * @param file the file to write to
      * @throws ExportException in case any error occurs
      */
     default void exportGraph(Graph<V, E> g, File file)
     {
-        try (Writer writer = new FileWriter(file, StandardCharsets.UTF_8)) {
+        try (Writer writer = new FileWriter(file)) {
             exportGraph(g, writer);
         } catch (IOException e) {
             throw new ExportException(e);

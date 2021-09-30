@@ -22,9 +22,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Supplier;
 
 import org.jgrapht.alg.util.Pair;
@@ -132,36 +130,36 @@ public class SuccinctDirectedGraphTest
         assertFalse(s.containsEdge(4, 2));
         assertFalse(s.containsEdge(4, 3));
 
-        assertEquals(Set.of(IntIntPair.of(0, 1), IntIntPair.of(0, 2)), s.outgoingEdgesOf(0));
-        assertEquals(Set.of(IntIntPair.of(1, 2)), s.outgoingEdgesOf(1));
-        assertEquals(Set.of(IntIntPair.of(2, 1), IntIntPair.of(2, 3)), s.outgoingEdgesOf(2));
+        assertEquals(new HashSet<>(Arrays.asList(IntIntPair.of(0, 1), IntIntPair.of(0, 2))), s.outgoingEdgesOf(0));
+        assertEquals(new HashSet<>(Arrays.asList(IntIntPair.of(1, 2))), s.outgoingEdgesOf(1));
+        assertEquals(new HashSet<>(Arrays.asList(IntIntPair.of(2, 1), IntIntPair.of(2, 3))), s.outgoingEdgesOf(2));
         assertEquals(
-            Set.of(IntIntPair.of(3, 0), IntIntPair.of(3, 3), IntIntPair.of(3, 4)),
+            new HashSet<>(Arrays.asList(IntIntPair.of(3, 0), IntIntPair.of(3, 3), IntIntPair.of(3, 4))),
             s.outgoingEdgesOf(3));
-        assertEquals(Set.of(IntIntPair.of(4, 1)), s.outgoingEdgesOf(4));
+        assertEquals(new HashSet<>(Arrays.asList(IntIntPair.of(4, 1))), s.outgoingEdgesOf(4));
 
-        assertEquals(Set.of(IntIntPair.of(3, 0)), s.incomingEdgesOf(0));
+        assertEquals(new HashSet<>(Arrays.asList(IntIntPair.of(3, 0))), s.incomingEdgesOf(0));
         assertEquals(
-            Set.of(IntIntPair.of(0, 1), IntIntPair.of(2, 1), IntIntPair.of(4, 1)),
+            new HashSet<>(Arrays.asList(IntIntPair.of(0, 1), IntIntPair.of(2, 1), IntIntPair.of(4, 1))),
             s.incomingEdgesOf(1));
-        assertEquals(Set.of(IntIntPair.of(0, 2), IntIntPair.of(1, 2)), s.incomingEdgesOf(2));
-        assertEquals(Set.of(IntIntPair.of(2, 3), IntIntPair.of(3, 3)), s.incomingEdgesOf(3));
-        assertEquals(Set.of(IntIntPair.of(3, 4)), s.incomingEdgesOf(4));
+        assertEquals(new HashSet<>(Arrays.asList(IntIntPair.of(0, 2), IntIntPair.of(1, 2))), s.incomingEdgesOf(2));
+        assertEquals(new HashSet<>(Arrays.asList(IntIntPair.of(2, 3), IntIntPair.of(3, 3))), s.incomingEdgesOf(3));
+        assertEquals(new HashSet<>(Arrays.asList(IntIntPair.of(3, 4))), s.incomingEdgesOf(4));
 
         assertEquals(
-            Set.of(IntIntPair.of(3, 0)),
+            new HashSet<>(Arrays.asList(IntIntPair.of(3, 0))),
             new ObjectOpenHashSet<>(s.iterables().incomingEdgesOf(0).iterator()));
         assertEquals(
-            Set.of(IntIntPair.of(0, 1), IntIntPair.of(2, 1), IntIntPair.of(4, 1)),
+            new HashSet<>(Arrays.asList(IntIntPair.of(0, 1), IntIntPair.of(2, 1), IntIntPair.of(4, 1))),
             new ObjectOpenHashSet<>(s.iterables().incomingEdgesOf(1).iterator()));
         assertEquals(
-            Set.of(IntIntPair.of(0, 2), IntIntPair.of(1, 2)),
+            new HashSet<>(Arrays.asList(IntIntPair.of(0, 2), IntIntPair.of(1, 2))),
             new ObjectOpenHashSet<>(s.iterables().incomingEdgesOf(2).iterator()));
         assertEquals(
-            Set.of(IntIntPair.of(2, 3), IntIntPair.of(3, 3)),
+            new HashSet<>(Arrays.asList(IntIntPair.of(2, 3), IntIntPair.of(3, 3))),
             new ObjectOpenHashSet<>(s.iterables().incomingEdgesOf(3).iterator()));
         assertEquals(
-            Set.of(IntIntPair.of(3, 4)),
+            new HashSet<>(Arrays.asList(IntIntPair.of(3, 4))),
             new ObjectOpenHashSet<>(s.iterables().incomingEdgesOf(4).iterator()));
 
         Iterator<IntIntPair> iterator = s.iterables().edgesOf(0).iterator();
@@ -272,7 +270,7 @@ public class SuccinctDirectedGraphTest
     public void testOutgoingOnly()
     {
         final List<Pair<Integer, Integer>> edges =
-            List.of(Pair.of(0, 1), Pair.of(0, 2), Pair.of(1, 2), Pair.of(2, 1));
+            Arrays.asList(Pair.of(0, 1), Pair.of(0, 2), Pair.of(1, 2), Pair.of(2, 1));
         final SuccinctDirectedGraph s = new SuccinctDirectedGraph(3, edges, false);
         assertEquals(2, s.outDegreeOf(0));
     }

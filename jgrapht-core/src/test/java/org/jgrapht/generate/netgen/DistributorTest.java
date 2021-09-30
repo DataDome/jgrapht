@@ -51,9 +51,9 @@ public class DistributorTest
                 return 0;
             }
         });
-        List<Integer> distribution = distributor.getDistribution(List.of("a", "b", "c"), 9);
+        List<Integer> distribution = distributor.getDistribution(Arrays.asList("a", "b", "c"), 9);
 
-        assertEquals(List.of(3, 4, 2), distribution);
+        assertEquals(Arrays.asList(3, 4, 2), distribution);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -72,7 +72,7 @@ public class DistributorTest
                 return 0;
             }
         });
-        distributor.getDistribution(List.of(1, 2, 3), 12);
+        distributor.getDistribution(Arrays.asList(1, 2, 3), 12);
     }
 
     @Test
@@ -92,9 +92,9 @@ public class DistributorTest
             }
         });
 
-        List<Integer> distribution = distributor.getDistribution(List.of(1, 2, 3), 10);
+        List<Integer> distribution = distributor.getDistribution(Arrays.asList(1, 2, 3), 10);
 
-        assertEquals(List.of(3, 5, 2), distribution);
+        assertEquals(Arrays.asList(3, 5, 2), distribution);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -114,7 +114,7 @@ public class DistributorTest
             }
         });
 
-        distributor.getDistribution(List.of(1, 2, 3), 8);
+        distributor.getDistribution(Arrays.asList(1, 2, 3), 8);
     }
 
     @Test

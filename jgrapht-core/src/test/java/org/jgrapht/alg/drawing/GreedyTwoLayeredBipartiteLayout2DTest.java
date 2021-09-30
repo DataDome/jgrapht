@@ -19,6 +19,8 @@ package org.jgrapht.alg.drawing;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 
 import org.jgrapht.Graph;
@@ -33,7 +35,7 @@ import org.junit.Test;
 /**
  * Test {@link MedianGreedyTwoLayeredBipartiteLayout2D} and
  * {@link BarycenterGreedyTwoLayeredBipartiteLayout2D}.
- * 
+ *
  * @author Dimitrios Michail
  */
 public class GreedyTwoLayeredBipartiteLayout2DTest
@@ -71,7 +73,7 @@ public class GreedyTwoLayeredBipartiteLayout2DTest
 
         MedianGreedyTwoLayeredBipartiteLayout2D<String, DefaultEdge> alg =
             new MedianGreedyTwoLayeredBipartiteLayout2D<>();
-        alg.withFirstPartition(Set.of(v1, v2, v3));
+        alg.withFirstPartition(new HashSet<>(Arrays.asList(v1, v2, v3)));
 
         MapLayoutModel2D<String> model = new MapLayoutModel2D<>(Box2D.of(0d, 0d, 3d, 10d));
         alg.layout(graph, model);
@@ -120,7 +122,7 @@ public class GreedyTwoLayeredBipartiteLayout2DTest
 
         BarycenterGreedyTwoLayeredBipartiteLayout2D<String, DefaultEdge> alg =
             new BarycenterGreedyTwoLayeredBipartiteLayout2D<>();
-        alg.withFirstPartition(Set.of(v1, v2, v3));
+        alg.withFirstPartition(new HashSet<>(Arrays.asList(v1, v2, v3)));
 
         MapLayoutModel2D<String> model = new MapLayoutModel2D<>(Box2D.of(0d, 0d, 3d, 10d));
         alg.layout(graph, model);

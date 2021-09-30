@@ -94,9 +94,9 @@ public class AhujaOrlinSharmaCapacitatedMinimumSpanningTreeTest
         assertTrue(cmst.isCapacitatedSpanningTree(graph, 0, 2.0, weights));
         assertEquals(6.0, cmst.getWeight(), 0.0000001);
 
-        assertEquals(Pair.of(Set.of(1, 5), 2.0), cmst.getPartition().get(cmst.getLabels().get(1)));
-        assertEquals(Pair.of(Set.of(2, 4), 2.0), cmst.getPartition().get(cmst.getLabels().get(2)));
-        assertEquals(Pair.of(Set.of(3, 6), 2.0), cmst.getPartition().get(cmst.getLabels().get(3)));
+        assertEquals(Pair.of(new HashSet<>(Arrays.asList(1, 5)), 2.0), cmst.getPartition().get(cmst.getLabels().get(1)));
+        assertEquals(Pair.of(new HashSet<>(Arrays.asList(2, 4)), 2.0), cmst.getPartition().get(cmst.getLabels().get(2)));
+        assertEquals(Pair.of(new HashSet<>(Arrays.asList(3, 6)), 2.0), cmst.getPartition().get(cmst.getLabels().get(3)));
 
         assertEquals(cmst.getLabels().get(1), cmst.getLabels().get(5), 0);
         assertEquals(cmst.getLabels().get(2), cmst.getLabels().get(4), 0);
@@ -162,9 +162,9 @@ public class AhujaOrlinSharmaCapacitatedMinimumSpanningTreeTest
         assertTrue(cmst.isCapacitatedSpanningTree(graph, 0, 4.0, weights));
         assertEquals(14.0, cmst.getWeight(), 0.0000001);
 
-        assertEquals(cmst.getPartition().get(cmst.getLabels().get(1)), Pair.of(Set.of(1, 5), 4.0));
-        assertEquals(cmst.getPartition().get(cmst.getLabels().get(2)), Pair.of(Set.of(2, 3), 3.0));
-        assertEquals(cmst.getPartition().get(cmst.getLabels().get(4)), Pair.of(Set.of(4), 3.0));
+        assertEquals(cmst.getPartition().get(cmst.getLabels().get(1)), Pair.of(new HashSet<>(Arrays.asList(1, 5)), 4.0));
+        assertEquals(cmst.getPartition().get(cmst.getLabels().get(2)), Pair.of(new HashSet<>(Arrays.asList(2, 3)), 3.0));
+        assertEquals(cmst.getPartition().get(cmst.getLabels().get(4)), Pair.of(new HashSet<>(Arrays.asList(4)), 3.0));
 
         assertEquals(cmst.getLabels().get(1), cmst.getLabels().get(5), 0);
         assertEquals(cmst.getLabels().get(2), cmst.getLabels().get(3), 0);
@@ -241,10 +241,10 @@ public class AhujaOrlinSharmaCapacitatedMinimumSpanningTreeTest
         assertTrue(cmst.isCapacitatedSpanningTree(graph, 0, 2.0, weights));
         assertEquals(5.0, cmst.getWeight(), 0.0000001);
 
-        assertEquals(Pair.of(Set.of(1, 5), 2.0), cmst.getPartition().get(cmst.getLabels().get(1)));
-        assertEquals(Pair.of(Set.of(2), 1.0), cmst.getPartition().get(cmst.getLabels().get(2)));
-        assertEquals(Pair.of(Set.of(3), 1.0), cmst.getPartition().get(cmst.getLabels().get(3)));
-        assertEquals(Pair.of(Set.of(4), 2.0), cmst.getPartition().get(cmst.getLabels().get(4)));
+        assertEquals(Pair.of(new HashSet<>(Arrays.asList(1, 5)), 2.0), cmst.getPartition().get(cmst.getLabels().get(1)));
+        assertEquals(Pair.of(new HashSet<>(Arrays.asList(2)), 1.0), cmst.getPartition().get(cmst.getLabels().get(2)));
+        assertEquals(Pair.of(new HashSet<>(Arrays.asList(3)), 1.0), cmst.getPartition().get(cmst.getLabels().get(3)));
+        assertEquals(Pair.of(new HashSet<>(Arrays.asList(4)), 2.0), cmst.getPartition().get(cmst.getLabels().get(4)));
 
         assertEquals(cmst.getLabels().get(1), cmst.getLabels().get(5), 0);
         assertNotEquals(cmst.getLabels().get(1), cmst.getLabels().get(2));
@@ -326,9 +326,9 @@ public class AhujaOrlinSharmaCapacitatedMinimumSpanningTreeTest
         assertEquals(7.0, cmst.getWeight(), 0.0000001);
 
         assertEquals(
-            Pair.of(Set.of(1, 4, 7), 3.0), cmst.getPartition().get(cmst.getLabels().get(1)));
-        assertEquals(Pair.of(Set.of(2, 5), 2.0), cmst.getPartition().get(cmst.getLabels().get(2)));
-        assertEquals(Pair.of(Set.of(3, 6), 2.0), cmst.getPartition().get(cmst.getLabels().get(3)));
+            Pair.of(new HashSet<>(Arrays.asList(1, 4, 7)), 3.0), cmst.getPartition().get(cmst.getLabels().get(1)));
+        assertEquals(Pair.of(new HashSet<>(Arrays.asList(2, 5)), 2.0), cmst.getPartition().get(cmst.getLabels().get(2)));
+        assertEquals(Pair.of(new HashSet<>(Arrays.asList(3, 6)), 2.0), cmst.getPartition().get(cmst.getLabels().get(3)));
 
         assertEquals(cmst.getLabels().get(1), cmst.getLabels().get(4), 0);
         assertEquals(cmst.getLabels().get(1), cmst.getLabels().get(7), 0);
@@ -422,9 +422,9 @@ public class AhujaOrlinSharmaCapacitatedMinimumSpanningTreeTest
         assertEquals(8.0, cmst.getWeight(), 0.0000001);
 
         assertEquals(
-            Pair.of(Set.of(1, 4, 7, 8), 4.0), cmst.getPartition().get(cmst.getLabels().get(1)));
-        assertEquals(Pair.of(Set.of(2, 5), 2.0), cmst.getPartition().get(cmst.getLabels().get(2)));
-        assertEquals(Pair.of(Set.of(3, 6), 2.0), cmst.getPartition().get(cmst.getLabels().get(3)));
+            Pair.of(new HashSet<>(Arrays.asList(1, 4, 7, 8)), 4.0), cmst.getPartition().get(cmst.getLabels().get(1)));
+        assertEquals(Pair.of(new HashSet<>(Arrays.asList(2, 5)), 2.0), cmst.getPartition().get(cmst.getLabels().get(2)));
+        assertEquals(Pair.of(new HashSet<>(Arrays.asList(3, 6)), 2.0), cmst.getPartition().get(cmst.getLabels().get(3)));
 
         assertEquals(cmst.getLabels().get(1), cmst.getLabels().get(4), 0);
         assertEquals(cmst.getLabels().get(1), cmst.getLabels().get(7), 0);
@@ -529,9 +529,9 @@ public class AhujaOrlinSharmaCapacitatedMinimumSpanningTreeTest
         assertTrue(cmst.isCapacitatedSpanningTree(graph, 0, 4.0, weights));
         assertEquals(14.0, cmst.getWeight(), 0.0000001);
 
-        assertEquals(cmst.getPartition().get(cmst.getLabels().get(1)), Pair.of(Set.of(1, 5), 4.0));
-        assertEquals(cmst.getPartition().get(cmst.getLabels().get(2)), Pair.of(Set.of(2, 3), 3.0));
-        assertEquals(cmst.getPartition().get(cmst.getLabels().get(4)), Pair.of(Set.of(4), 3.0));
+        assertEquals(cmst.getPartition().get(cmst.getLabels().get(1)), Pair.of(new HashSet<>(Arrays.asList(1, 5)), 4.0));
+        assertEquals(cmst.getPartition().get(cmst.getLabels().get(2)), Pair.of(new HashSet<>(Arrays.asList(2, 3)), 3.0));
+        assertEquals(cmst.getPartition().get(cmst.getLabels().get(4)), Pair.of(new HashSet<>(Arrays.asList(4)), 3.0));
 
         assertEquals(cmst.getLabels().get(1), cmst.getLabels().get(5), 0);
         assertEquals(cmst.getLabels().get(2), cmst.getLabels().get(3), 0);

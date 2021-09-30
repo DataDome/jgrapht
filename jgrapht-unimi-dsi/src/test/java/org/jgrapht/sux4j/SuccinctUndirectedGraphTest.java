@@ -22,6 +22,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.function.Supplier;
@@ -119,68 +121,68 @@ public class SuccinctUndirectedGraphTest
         assertFalse(s.containsEdge(4, 4));
         assertFalse(s.containsEdge(4, 2));
 
-        assertEquals(Set.of(IntIntSortedPair.of(0, 1), IntIntSortedPair.of(0, 3)), s.edgesOf(0));
+        assertEquals(new HashSet<>(Arrays.asList(IntIntSortedPair.of(0, 1), IntIntSortedPair.of(0, 3))), s.edgesOf(0));
         assertEquals(
-            Set.of(IntIntSortedPair.of(0, 1), IntIntSortedPair.of(1, 2), IntIntSortedPair.of(1, 4)),
+            new HashSet<>(Arrays.asList(IntIntSortedPair.of(0, 1), IntIntSortedPair.of(1, 2), IntIntSortedPair.of(1, 4))),
             s.edgesOf(1));
-        assertEquals(Set.of(IntIntSortedPair.of(2, 1), IntIntSortedPair.of(2, 3)), s.edgesOf(2));
+        assertEquals(new HashSet<>(Arrays.asList(IntIntSortedPair.of(2, 1), IntIntSortedPair.of(2, 3))), s.edgesOf(2));
         assertEquals(
-            Set
-                .of(
+            new HashSet<>(Arrays
+                .asList(
                     IntIntSortedPair.of(0, 3), IntIntSortedPair.of(3, 3), IntIntSortedPair.of(3, 4),
-                    IntIntSortedPair.of(3, 2)),
+                    IntIntSortedPair.of(3, 2))),
             s.edgesOf(3));
-        assertEquals(Set.of(IntIntSortedPair.of(4, 1), IntIntSortedPair.of(4, 3)), s.edgesOf(4));
+        assertEquals(new HashSet<>(Arrays.asList(IntIntSortedPair.of(4, 1), IntIntSortedPair.of(4, 3))), s.edgesOf(4));
 
         assertEquals(
-            Set.of(IntIntSortedPair.of(0, 1), IntIntSortedPair.of(0, 3)), s.outgoingEdgesOf(0));
+            new HashSet<>(Arrays.asList(IntIntSortedPair.of(0, 1), IntIntSortedPair.of(0, 3))), s.outgoingEdgesOf(0));
         assertEquals(
-            Set.of(IntIntSortedPair.of(0, 1), IntIntSortedPair.of(1, 2), IntIntSortedPair.of(1, 4)),
+            new HashSet<>(Arrays.asList(IntIntSortedPair.of(0, 1), IntIntSortedPair.of(1, 2), IntIntSortedPair.of(1, 4))),
             s.outgoingEdgesOf(1));
         assertEquals(
-            Set.of(IntIntSortedPair.of(2, 1), IntIntSortedPair.of(2, 3)), s.outgoingEdgesOf(2));
+            new HashSet<>(Arrays.asList(IntIntSortedPair.of(2, 1), IntIntSortedPair.of(2, 3))), s.outgoingEdgesOf(2));
         assertEquals(
-            Set
-                .of(
+            new HashSet<>(Arrays
+                .asList(
                     IntIntSortedPair.of(0, 3), IntIntSortedPair.of(3, 3), IntIntSortedPair.of(3, 4),
-                    IntIntSortedPair.of(3, 2)),
+                    IntIntSortedPair.of(3, 2))),
             s.outgoingEdgesOf(3));
         assertEquals(
-            Set.of(IntIntSortedPair.of(4, 1), IntIntSortedPair.of(4, 3)), s.outgoingEdgesOf(4));
+            new HashSet<>(Arrays.asList(IntIntSortedPair.of(4, 1), IntIntSortedPair.of(4, 3))), s.outgoingEdgesOf(4));
 
         assertEquals(
-            Set.of(IntIntSortedPair.of(0, 1), IntIntSortedPair.of(0, 3)), s.incomingEdgesOf(0));
+            new HashSet<>(Arrays.asList(IntIntSortedPair.of(0, 1), IntIntSortedPair.of(0, 3))), s.incomingEdgesOf(0));
         assertEquals(
-            Set.of(IntIntSortedPair.of(0, 1), IntIntSortedPair.of(1, 2), IntIntSortedPair.of(1, 4)),
+            new HashSet<>(Arrays.asList(IntIntSortedPair.of(0, 1), IntIntSortedPair.of(1, 2), IntIntSortedPair.of(1, 4))),
             s.incomingEdgesOf(1));
         assertEquals(
-            Set.of(IntIntSortedPair.of(2, 1), IntIntSortedPair.of(2, 3)), s.incomingEdgesOf(2));
+            new HashSet<>(Arrays.asList(IntIntSortedPair.of(2, 1), IntIntSortedPair.of(2, 3))), s.incomingEdgesOf(2));
         assertEquals(
-            Set
-                .of(
+            new HashSet<>(Arrays
+                .asList(
                     IntIntSortedPair.of(0, 3), IntIntSortedPair.of(3, 3), IntIntSortedPair.of(3, 4),
-                    IntIntSortedPair.of(3, 2)),
+                    IntIntSortedPair.of(3, 2))),
             s.incomingEdgesOf(3));
         assertEquals(
-            Set.of(IntIntSortedPair.of(4, 1), IntIntSortedPair.of(4, 3)), s.incomingEdgesOf(4));
+            new HashSet<>(Arrays.asList(IntIntSortedPair.of(4, 1), IntIntSortedPair.of(4, 3))), s.incomingEdgesOf(4));
 
         assertEquals(
-            Set.of(IntIntSortedPair.of(0, 1), IntIntSortedPair.of(0, 3)),
+            new HashSet<>(Arrays.asList(IntIntSortedPair.of(0, 1), IntIntSortedPair.of(0, 3))),
             new ObjectOpenHashSet<>(s.iterables().incomingEdgesOf(0).iterator()));
         assertEquals(
-            Set.of(IntIntSortedPair.of(0, 1), IntIntSortedPair.of(1, 2), IntIntSortedPair.of(1, 4)),
+            new HashSet<>(Arrays.asList(IntIntSortedPair.of(0, 1), IntIntSortedPair.of(1, 2), IntIntSortedPair.of(1, 4))),
             new ObjectOpenHashSet<>(s.iterables().incomingEdgesOf(1).iterator()));
         assertEquals(
-            Set.of(IntIntSortedPair.of(2, 1), IntIntSortedPair.of(2, 3)),
+            new HashSet<>(Arrays.asList(IntIntSortedPair.of(2, 1), IntIntSortedPair.of(2, 3))),
             new ObjectOpenHashSet<>(s.iterables().incomingEdgesOf(2).iterator()));
         assertEquals(
-            Set
-                .of(
+            new HashSet<>(Arrays
+                .asList(
                     IntIntSortedPair.of(0, 3), IntIntSortedPair.of(3, 3), IntIntSortedPair.of(3, 4),
-                    IntIntSortedPair.of(3, 2)),
+                    IntIntSortedPair.of(3, 2))),
             new ObjectOpenHashSet<>(s.iterables().incomingEdgesOf(3).iterator()));
         assertEquals(
-            Set.of(IntIntSortedPair.of(4, 1), IntIntSortedPair.of(4, 3)),
+            new HashSet<>(Arrays.asList(IntIntSortedPair.of(4, 1), IntIntSortedPair.of(4, 3))),
             new ObjectOpenHashSet<>(s.iterables().incomingEdgesOf(4).iterator()));
 
         final Iterator<IntIntSortedPair> iterator = s.iterables().edgesOf(0).iterator();

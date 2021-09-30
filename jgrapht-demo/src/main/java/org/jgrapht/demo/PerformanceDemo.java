@@ -53,7 +53,7 @@ public final class PerformanceDemo
 
         reportPerformanceFor("starting at", time);
 
-        Graph<Object, DefaultEdge> g = new Pseudograph<>(DefaultEdge.class);
+        Graph<Object, DefaultEdge> g = new Pseudograph<Object, DefaultEdge>(DefaultEdge.class);
         Object prev;
         Object curr;
 
@@ -84,7 +84,7 @@ public final class PerformanceDemo
 
         time = System.currentTimeMillis();
 
-        for (Iterator<Object> i = new BreadthFirstIterator<>(g); i.hasNext();) {
+        for (Iterator<Object> i = new BreadthFirstIterator<Object, DefaultEdge>(g); i.hasNext();) {
             i.next();
         }
 
@@ -92,7 +92,7 @@ public final class PerformanceDemo
 
         time = System.currentTimeMillis();
 
-        for (Iterator<Object> i = new DepthFirstIterator<>(g); i.hasNext();) {
+        for (Iterator<Object> i = new DepthFirstIterator<Object, DefaultEdge>(g); i.hasNext();) {
             i.next();
         }
 

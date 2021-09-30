@@ -139,7 +139,7 @@ public class CollectionUtil
         if (it.hasNext()) {
             return it.next();
         } else {
-            throw new IndexOutOfBoundsException(index);
+            throw new IndexOutOfBoundsException(String.valueOf(index));
         }
     }
 }

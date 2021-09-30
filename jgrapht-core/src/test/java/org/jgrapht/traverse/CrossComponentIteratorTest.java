@@ -79,14 +79,14 @@ public abstract class CrossComponentIteratorTest
         final ModifiableInteger iteratorCalls = new ModifiableInteger(0);
         final ModifiableInteger sizeCalls = new ModifiableInteger(0);
         Graph<String, DefaultWeightedEdge> graph = createDirectedGraph();
-        Graph<String, DefaultWeightedEdge> wrapper = new GraphDelegator<>(graph)
+        Graph<String, DefaultWeightedEdge> wrapper = new GraphDelegator<String, DefaultWeightedEdge>(graph)
         {
             private static final long serialVersionUID = 1L;
 
             @Override
             public Set<String> vertexSet()
             {
-                return new AbstractSet<>()
+                return new AbstractSet<String>()
                 {
                     @Override
                     public Iterator<String> iterator()

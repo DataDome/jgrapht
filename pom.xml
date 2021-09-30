@@ -132,13 +132,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.8.1</version>
-                    <configuration>
-                        <release>11</release>
-                        <compilerArgs>
-                            <arg>--add-modules</arg>
-                                <arg>java.xml</arg>
-                        </compilerArgs>
-                    </configuration>
                     <executions>
                         <execution>
                             <id>default-compile</id>
@@ -253,7 +246,7 @@
                         <windowtitle>JGraphT : a free Java graph library</windowtitle>
                         <additionalJOption>--allow-script-in-comments</additionalJOption>
                         <doclint>none</doclint>
-                        <source>11</source>
+                        <source>8</source>
                         <header>&lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://jgrapht.org/mathjax/mathjaxConfig.js"&gt;&lt;/script&gt;
                         &lt;img src="https://github.com/jgrapht/jgrapht/blob/master/etc/logo/jgrapht-logo-transparent-cropped-javadocheader.png?raw=true" style="height:55px;"&gt;
                         </header>

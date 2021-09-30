@@ -92,7 +92,7 @@ public class ParberryKnightTour
 
     /**
      * Constructor.
-     * 
+     *
      * @param n width of the board.
      * @param m height of the board.
      */
@@ -122,7 +122,7 @@ public class ParberryKnightTour
     /**
      * Generates a closed knight's tour for a piece of the board which is being set by left-upper
      * and right-bottom cells.
-     * 
+     *
      * @param start left-upper cell of the piece of the original chessboard.
      * @param end right-bottom cell of the piece of the original chessboard.
      * @return closed knight's tour on this piece of the board.
@@ -169,20 +169,20 @@ public class ParberryKnightTour
          */
 
         if (nDim + 2 == mDim && rem == 2) {
-            start1 = new Pair<>(start.getFirst(), start.getSecond());
-            end1 = new Pair<>(start.getFirst() + 2 * k - 1, start.getSecond() + mDim / 2 - 1);
+            start1 = new Pair<Integer, Integer>(start.getFirst(), start.getSecond());
+            end1 = new Pair<Integer, Integer>(start.getFirst() + 2 * k - 1, start.getSecond() + mDim / 2 - 1);
         } else {
-            start1 = new Pair<>(start.getFirst(), start.getSecond());
-            end1 = new Pair<>(start.getFirst() + 2 * k - 1, start.getSecond() + 2 * k - 1);
+            start1 = new Pair<Integer, Integer>(start.getFirst(), start.getSecond());
+            end1 = new Pair<Integer, Integer>(start.getFirst() + 2 * k - 1, start.getSecond() + 2 * k - 1);
         }
-        start2 = new Pair<>(end1.getFirst() + 1, start1.getSecond());
-        end2 = new Pair<>(end.getFirst(), end1.getSecond());
+        start2 = new Pair<Integer, Integer>(end1.getFirst() + 1, start1.getSecond());
+        end2 = new Pair<Integer, Integer>(end.getFirst(), end1.getSecond());
 
-        start3 = new Pair<>(start.getFirst(), end1.getSecond() + 1);
-        end3 = new Pair<>(end1.getFirst(), end.getSecond());
+        start3 = new Pair<Integer, Integer>(start.getFirst(), end1.getSecond() + 1);
+        end3 = new Pair<Integer, Integer>(end1.getFirst(), end.getSecond());
 
-        start4 = new Pair<>(end1.getFirst() + 1, end1.getSecond() + 1);
-        end4 = new Pair<>(end.getFirst(), end.getSecond());
+        start4 = new Pair<Integer, Integer>(end1.getFirst() + 1, end1.getSecond() + 1);
+        end4 = new Pair<Integer, Integer>(end.getFirst(), end.getSecond());
 
         /*
          * ######################################### #s1*****************|s2*****************#
@@ -208,7 +208,7 @@ public class ParberryKnightTour
 
         /*
          * Removing edges A, B, C and D.
-         * 
+         *
          * ######################################### #*******************|*******************#
          * #*******************|*******************# #*******************|*******************#
          * #******TOUR 1*******|******TOUR 2*******# #*******************|*******************#
@@ -223,7 +223,7 @@ public class ParberryKnightTour
 
         /*
          * Adding edges E, F, G, H to contract the quadrants.
-         * 
+         *
          * ######################################### #*******************|*******************#
          * #*******************|*******************# #*******************|*******************#
          * #******TOUR 1*******|******TOUR 2*******# #*******************|*******************#
@@ -240,7 +240,7 @@ public class ParberryKnightTour
          * Relation between nodes in structured array and endpoints of the edges to be
          * deleted/added. Note that you don't know the direction of the edges A, B, C, D, so you
          * have to check both options.
-         * 
+         *
          * ######################################### #**0***************2|**0***************2#
          * #1******************|1******************# #*****************3*|*****************3*#
          * #******TOUR 1*******|******TOUR 2*******# #*******************|*******************#
@@ -251,32 +251,32 @@ public class ParberryKnightTour
          * #*******************|*******************# #*4*****************|*4*****************#
          * #******************6|******************6# #5***************7**|5***************7**#
          * ######################################### _________________________________
-         * 
+         *
          * A.start = tour1.forStructured[6]; A.end = tour1.forStructured[7];
-         * 
+         *
          * or
-         * 
+         *
          * A.end = tour1.forStructured[6]; A.start = tour1.forStructured[7];
          * __________________________________
-         * 
+         *
          * B.start = tour2.forStructured[4]; B.end = tour2.forStructured[5];
-         * 
+         *
          * or
-         * 
+         *
          * B.end = tour2.forStructured[4]; B.start = tour2.forStructured[5];
          * __________________________________
-         * 
+         *
          * C.start = tour4.forStructured[0]; C.end = tour4.forStructured[1];
-         * 
+         *
          * or
-         * 
+         *
          * C.end = tour4.forStructured[0]; C.start = tour4.forStructured[1];
          * __________________________________
-         * 
+         *
          * D.start = tour2.forStructured[2]; D.end = tour2.forStructured[3];
-         * 
+         *
          * or
-         * 
+         *
          * D.end = tour2.forStructured[2]; D.start = tour2.forStructured[3];
          * __________________________________
          */
@@ -351,12 +351,12 @@ public class ParberryKnightTour
 
     /**
      * Returns a closed knight's tour.
-     * 
+     *
      * @return closed knight's tour.
      */
 
     public KnightTour getTour()
     {
-        return generateTour(new Pair<>(0, 0), new Pair<>(n - 1, m - 1));
+        return generateTour(new Pair<Integer, Integer>(0, 0), new Pair<Integer, Integer>(n - 1, m - 1));
     }
 }

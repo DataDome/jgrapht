@@ -267,7 +267,7 @@ public class ImmutableDirectedGraphAdapter
             immutableGraph.copy(), immutableTranspose != null ? immutableTranspose.copy() : null);
     }
 
-    private final GraphIterables<Integer, IntIntPair> iterables = new GraphIterables<>()
+    private final GraphIterables<Integer, IntIntPair> iterables = new GraphIterables<Integer, IntIntPair>()
     {
         @Override
         public ImmutableDirectedGraphAdapter getGraph()
@@ -313,7 +313,7 @@ public class ImmutableDirectedGraphAdapter
 
         private Iterable<IntIntPair> incomingEdgesOf(final int x, final boolean skipLoops)
         {
-            return () -> new Iterator<>()
+            return () -> new Iterator<IntIntPair>()
             {
                 final LazyIntIterator successors = immutableTranspose.successors(x);
                 int y = successors.nextInt();
@@ -354,7 +354,7 @@ public class ImmutableDirectedGraphAdapter
         @Override
         public Iterable<IntIntPair> outgoingEdgesOf(final Integer vertex)
         {
-            return () -> new Iterator<>()
+            return () -> new Iterator<IntIntPair>()
             {
                 final int x = vertex;
                 final LazyIntIterator successors = immutableGraph.successors(x);
@@ -381,7 +381,7 @@ public class ImmutableDirectedGraphAdapter
         @Override
         public Iterable<IntIntPair> edges()
         {
-            return () -> new Iterator<>()
+            return () -> new Iterator<IntIntPair>()
             {
                 final NodeIterator nodeIterator = immutableGraph.nodeIterator();
                 LazyIntIterator successors = LazyIntIterators.EMPTY_ITERATOR;

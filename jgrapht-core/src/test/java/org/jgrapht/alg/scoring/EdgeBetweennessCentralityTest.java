@@ -19,6 +19,7 @@ package org.jgrapht.alg.scoring;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.jgrapht.Graph;
@@ -30,7 +31,7 @@ import org.junit.Test;
 
 /**
  * Unit tests for {@link EdgeBetweennessCentrality}
- * 
+ *
  * @author Dimitrios Michail
  */
 public class EdgeBetweennessCentralityTest
@@ -184,7 +185,7 @@ public class EdgeBetweennessCentralityTest
         DefaultEdge e13_14 = g.addEdge(13, 14);
 
         EdgeBetweennessCentrality<Integer, DefaultEdge> ebc = new EdgeBetweennessCentrality<>(
-            g, OverflowStrategy.THROW_EXCEPTION_ON_OVERFLOW, List.of(1, 2, 4, 11));
+            g, OverflowStrategy.THROW_EXCEPTION_ON_OVERFLOW, Arrays.asList(1, 2, 4, 11));
 
         assertEquals(16.0, ebc.getEdgeScore(e3_7), 1e-9);
         assertEquals(21.0, ebc.getEdgeScore(e7_8), 1e-9);

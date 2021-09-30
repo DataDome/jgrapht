@@ -26,7 +26,7 @@ import static org.junit.Assert.*;
 
 /**
  * Tests for {@link UnmodifiableUnionSet}.
- * 
+ *
  * @author Dimitrios Michail
  */
 public class UnmodifiableUnionSetTest
@@ -36,7 +36,7 @@ public class UnmodifiableUnionSetTest
     public void test1()
     {
         UnmodifiableUnionSet<Integer> union =
-            new UnmodifiableUnionSet<>(Set.of(1, 2, 3, 4, 5), Set.of(1, 2, 3, 4, 5));
+            new UnmodifiableUnionSet<>(new HashSet<>(Arrays.asList(1, 2, 3, 4, 5)), new HashSet<>(Arrays.asList(1, 2, 3, 4, 5)));
         assertEquals(5, union.size());
         IntStream.rangeClosed(1, 5).forEach(x -> assertTrue(union.contains(x)));
         IntStream.rangeClosed(6, 15).forEach(x -> assertFalse(union.contains(x)));
@@ -46,7 +46,7 @@ public class UnmodifiableUnionSetTest
     public void test2()
     {
         UnmodifiableUnionSet<Integer> union = new UnmodifiableUnionSet<>(
-            Set.of(1, 2, 3, 4, 5), Set.of(6, 7, 8, 9, 10, 11, 12, 13, 14, 15));
+            new HashSet<>(Arrays.asList(1, 2, 3, 4, 5)), new HashSet<>(Arrays.asList(6, 7, 8, 9, 10, 11, 12, 13, 14, 15)));
         assertEquals(15, union.size());
         IntStream.rangeClosed(1, 15).forEach(x -> assertTrue(union.contains(x)));
         IntStream.rangeClosed(16, 20).forEach(x -> assertFalse(union.contains(x)));
@@ -56,7 +56,7 @@ public class UnmodifiableUnionSetTest
     public void test3()
     {
         UnmodifiableUnionSet<Integer> union =
-            new UnmodifiableUnionSet<>(Set.of(1, 2, 3, 4, 5), Set.of(3, 4, 5, 6, 7, 8, 9, 10, 20));
+            new UnmodifiableUnionSet<>(new HashSet<>(Arrays.asList(1, 2, 3, 4, 5)), new HashSet<>(Arrays.asList(3, 4, 5, 6, 7, 8, 9, 10, 20)));
         assertEquals(11, union.size());
         IntStream.rangeClosed(1, 10).forEach(x -> assertTrue(union.contains(x)));
         IntStream.rangeClosed(11, 19).forEach(x -> assertFalse(union.contains(x)));
@@ -67,7 +67,7 @@ public class UnmodifiableUnionSetTest
     public void test4()
     {
         UnmodifiableUnionSet<Integer> union =
-            new UnmodifiableUnionSet<>(new HashSet<>(), Set.of(1, 2, 3, 4, 5));
+            new UnmodifiableUnionSet<>(new HashSet<>(), new HashSet<>(Arrays.asList(1, 2, 3, 4, 5)));
         assertEquals(5, union.size());
         IntStream.rangeClosed(1, 5).forEach(x -> assertTrue(union.contains(x)));
         IntStream.of(6).forEach(x -> assertFalse(union.contains(x)));
@@ -86,7 +86,7 @@ public class UnmodifiableUnionSetTest
     public void testIteratorDisjoint()
     {
         UnmodifiableUnionSet<Integer> union = new UnmodifiableUnionSet<>(
-            Set.of(1, 2, 3, 4, 5), Set.of(6, 7, 8, 9, 10, 11, 12, 13, 14, 15));
+            new HashSet<>(Arrays.asList(1, 2, 3, 4, 5)), new HashSet<>(Arrays.asList(6, 7, 8, 9, 10, 11, 12, 13, 14, 15)));
         assertEquals(15, union.size());
 
         List<Integer> collectedElementsAsList = StreamSupport
@@ -105,7 +105,7 @@ public class UnmodifiableUnionSetTest
     public void testIteratorCommonElements()
     {
         UnmodifiableUnionSet<Integer> union =
-            new UnmodifiableUnionSet<>(Set.of(1, 2, 3, 4, 5), Set.of(3, 4, 5, 6, 7, 8, 9, 10));
+            new UnmodifiableUnionSet<>(new HashSet<>(Arrays.asList(1, 2, 3, 4, 5)), new HashSet<>(Arrays.asList(3, 4, 5, 6, 7, 8, 9, 10)));
         assertEquals(10, union.size());
 
         List<Integer> collectedElementsAsList = StreamSupport
@@ -128,9 +128,9 @@ public class UnmodifiableUnionSetTest
         // underlying sets, and that size/iterator calls are optimized
         // based on the relative sizes of the underlying sets
 
-        Set<Integer> smallerHash = Set.of(1, 2, 3, 4, 5);
+        Set<Integer> smallerHash = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5));
         ProfilingSet<Integer> smaller = new ProfilingSet<>(smallerHash);
-        Set<Integer> biggerHash = Set.of(3, 4, 5, 6, 7, 8, 9, 10);
+        Set<Integer> biggerHash = new HashSet<>(Arrays.asList(3, 4, 5, 6, 7, 8, 9, 10));
         ProfilingSet<Integer> bigger = new ProfilingSet<>(biggerHash);
 
         UnmodifiableUnionSet<Integer> union = new UnmodifiableUnionSet<>(smaller, bigger);
@@ -257,7 +257,7 @@ public class UnmodifiableUnionSetTest
         public Iterator<E> iterator()
         {
             iteratorCalls++;
-            return new Iterator<>()
+            return new Iterator<E>()
             {
                 private Iterator<E> delegateIterator = delegate.iterator();
 

@@ -44,7 +44,7 @@ public class EdgeSelectionTest
     {
         Graph<StatefulVertex, StatefulEdge> graph = createGraph();
         DepthFirstIterator<StatefulVertex, StatefulEdge> iterator =
-            new DepthFirstIterator<>(graph)
+            new DepthFirstIterator<StatefulVertex, StatefulEdge>(graph)
             {
                 String evenEdgeColor = "BLUE";
                 String oddEdgeColor = "RED";

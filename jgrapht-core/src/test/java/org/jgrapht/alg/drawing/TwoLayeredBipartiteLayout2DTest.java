@@ -19,6 +19,8 @@ package org.jgrapht.alg.drawing;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 
 import org.jgrapht.Graph;
@@ -32,7 +34,7 @@ import org.junit.Test;
 
 /**
  * Test {@link TwoLayeredBipartiteLayout2D}.
- * 
+ *
  * @author Dimitrios Michail
  */
 public class TwoLayeredBipartiteLayout2DTest
@@ -138,7 +140,7 @@ public class TwoLayeredBipartiteLayout2DTest
         graph.addEdge(v3, v6);
 
         TwoLayeredBipartiteLayout2D<String, DefaultEdge> alg = new TwoLayeredBipartiteLayout2D<>();
-        alg.withFirstPartition(Set.of(v1, v2, v3, v7));
+        alg.withFirstPartition(new HashSet<>(Arrays.asList(v1, v2, v3, v7)));
 
         MapLayoutModel2D<String> model = new MapLayoutModel2D<>(Box2D.of(0d, 0d, 3d, 10d));
         alg.layout(graph, model);

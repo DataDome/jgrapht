@@ -209,7 +209,7 @@ public class ImmutableDirectedBigGraphAdapter
             immutableGraph.copy(), immutableTranspose != null ? immutableTranspose.copy() : null);
     }
 
-    private final GraphIterables<Long, LongLongPair> iterables = new GraphIterables<>()
+    private final GraphIterables<Long, LongLongPair> iterables = new GraphIterables<Long, LongLongPair>()
     {
         @Override
         public ImmutableDirectedBigGraphAdapter getGraph()
@@ -255,7 +255,7 @@ public class ImmutableDirectedBigGraphAdapter
 
         private Iterable<LongLongPair> incomingEdgesOf(final long x, final boolean skipLoops)
         {
-            return () -> new Iterator<>()
+            return () -> new Iterator<LongLongPair>()
             {
                 final LazyLongIterator successors = immutableTranspose.successors(x);
                 long y = -1;
@@ -296,7 +296,7 @@ public class ImmutableDirectedBigGraphAdapter
         @Override
         public Iterable<LongLongPair> outgoingEdgesOf(final Long vertex)
         {
-            return () -> new Iterator<>()
+            return () -> new Iterator<LongLongPair>()
             {
                 final long x = vertex;
                 final LazyLongIterator successors = immutableGraph.successors(x);
@@ -323,7 +323,7 @@ public class ImmutableDirectedBigGraphAdapter
         @Override
         public Iterable<LongLongPair> edges()
         {
-            return () -> new Iterator<>()
+            return () -> new Iterator<LongLongPair>()
             {
                 final NodeIterator nodeIterator = immutableGraph.nodeIterator();
                 LazyLongIterator successors = LazyLongIterators.EMPTY_ITERATOR;

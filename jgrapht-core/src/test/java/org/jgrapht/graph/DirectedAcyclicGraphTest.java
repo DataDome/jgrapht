@@ -626,7 +626,7 @@ public class DirectedAcyclicGraphTest
     public void testFastLookupGraphSpecificsStrategyAndHashSet()
     {
         GraphSpecificsStrategy<String, DefaultEdge> graphSpecificsStrategy =
-            new FastLookupGraphSpecificsStrategy<>()
+            new FastLookupGraphSpecificsStrategy<String, DefaultEdge>()
             {
                 @Override public EdgeSetFactory<String, DefaultEdge> getEdgeSetFactory()
                 {

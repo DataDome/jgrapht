@@ -334,7 +334,7 @@ public class AHUUnrootedTreeIsomorphismInspectorTest
         // Test as forest
 
         AHUForestIsomorphismInspector<Integer, DefaultEdge> forestIsomorphism =
-            new AHUForestIsomorphismInspector<>(tree1, Set.of(1, 3), tree2, Set.of(11, 31));
+            new AHUForestIsomorphismInspector<>(tree1, new HashSet<>(Arrays.asList(1, 3)), tree2, new HashSet<>(Arrays.asList(11, 31)));
 
         Assert.assertTrue(forestIsomorphism.isomorphismExists());
         IsomorphicGraphMapping<Integer, DefaultEdge> treeMapping = forestIsomorphism.getMapping();

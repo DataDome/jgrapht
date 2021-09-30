@@ -62,7 +62,7 @@ public class StrongConnectivityAlgorithmTest
     private static final String V11 = "v11";
 
     private static final List<String> VERTICES =
-        List.of(V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11);
+        Arrays.asList(V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11);
 
     // ~ Instance fields --------------------------------------------------------
 
@@ -76,8 +76,8 @@ public class StrongConnectivityAlgorithmTest
     @SuppressWarnings("unchecked")
     public static List<Object[]> getAlgorithmFactory()
     {
-        return List
-            .of(
+        return Arrays
+            .asList(
                 new Object[] { GabowStrongConnectivityInspector.class.getSimpleName(),
                     (Function<Graph<?, ?>, ?>) GabowStrongConnectivityInspector::new },
 
@@ -95,7 +95,7 @@ public class StrongConnectivityAlgorithmTest
 
         g.addEdge(V3, V4); // only weakly connected
 
-        assertStronglyConnectedSets(g, Set.of(V1, V2), Set.of(V3), Set.of(V4));
+        assertStronglyConnectedSets(g, new HashSet<>(Arrays.asList(V1, V2)), new HashSet<>(Arrays.asList(V3)), new HashSet<>(Arrays.asList(V4)));
     }
 
     @Test
@@ -109,7 +109,7 @@ public class StrongConnectivityAlgorithmTest
         g.addEdge(V4, V3); // only weakly connected
         g.addEdge(V3, V2); // only weakly connected
 
-        assertStronglyConnectedSets(g, Set.of(V1, V2), Set.of(V3), Set.of(V4));
+        assertStronglyConnectedSets(g, new HashSet<>(Arrays.asList(V1, V2)), new HashSet<>(Arrays.asList(V3)), new HashSet<>(Arrays.asList(V4)));
     }
 
     @Test
@@ -125,7 +125,7 @@ public class StrongConnectivityAlgorithmTest
         g.addEdge(V2, V4);
         g.addEdge(V3, V4); // weakly connected
 
-        assertStronglyConnectedSets(g, Set.of(V1, V2, V3), Set.of(V4));
+        assertStronglyConnectedSets(g, new HashSet<>(Arrays.asList(V1, V2, V3)), new HashSet<>(Arrays.asList(V4)));
     }
 
     @Test
@@ -136,7 +136,7 @@ public class StrongConnectivityAlgorithmTest
 
         new RingGraphGenerator<Integer, String>(3).generateGraph(graph);
 
-        assertStronglyConnectedSets(graph, Set.of(0, 1, 2));
+        assertStronglyConnectedSets(graph, new HashSet<>(Arrays.asList(0, 1, 2)));
     }
 
     @Test
@@ -163,7 +163,7 @@ public class StrongConnectivityAlgorithmTest
         graph.addEdge(V6, V3);
         graph.addEdge(V6, V4);
 
-        assertStronglyConnectedSets(graph, Set.of(V1), Set.of(V2, V4, V5, V6), Set.of(V3));
+        assertStronglyConnectedSets(graph, new HashSet<>(Arrays.asList(V1)), new HashSet<>(Arrays.asList(V2, V4, V5, V6)), new HashSet<>(Arrays.asList(V3)));
     }
 
     @Test
@@ -189,7 +189,7 @@ public class StrongConnectivityAlgorithmTest
         graph.addEdge(V8, V7);
 
         assertStronglyConnectedSets(
-            graph, Set.of(V1, V2, V5), Set.of(V3, V4), Set.of(V6, V7), Set.of(V8));
+            graph, new HashSet<>(Arrays.asList(V1, V2, V5)), new HashSet<>(Arrays.asList(V3, V4)), new HashSet<>(Arrays.asList(V6, V7)), new HashSet<>(Arrays.asList(V8)));
     }
 
     @Test
@@ -204,7 +204,7 @@ public class StrongConnectivityAlgorithmTest
         graph.addEdge(V4, V1);
         graph.addEdge(V5, V3);
 
-        assertStronglyConnectedSets(graph, Set.of(V1, V2, V3, V4, V5));
+        assertStronglyConnectedSets(graph, new HashSet<>(Arrays.asList(V1, V2, V3, V4, V5)));
     }
 
     @Test
@@ -231,8 +231,8 @@ public class StrongConnectivityAlgorithmTest
         graph.addEdge(V10, V9);
 
         assertStronglyConnectedSets(
-            graph, Set.of(V1, V2, V3, V4), Set.of(V5, V6, V7), Set.of(V8), Set.of(V9, V10),
-            Set.of(V11));
+            graph, new HashSet<>(Arrays.asList(V1, V2, V3, V4)), new HashSet<>(Arrays.asList(V5, V6, V7)), new HashSet<>(Arrays.asList(V8)), new HashSet<>(Arrays.asList(V9, V10)),
+            new HashSet<>(Arrays.asList(V11)));
     }
 
     @Test
@@ -256,22 +256,22 @@ public class StrongConnectivityAlgorithmTest
 
         assertThat(
             condensation.vertexSet().stream().map(Graph::vertexSet).collect(Collectors.toList()),
-            containsInAnyOrder(Set.of(V1, V2), Set.of(V3), Set.of(V4), Set.of(V5)));
+            containsInAnyOrder(new HashSet<>(Arrays.asList(V1, V2)), new HashSet<>(Arrays.asList(V3)), new HashSet<>(Arrays.asList(V4)), new HashSet<>(Arrays.asList(V5))));
 
-        Graph<String, DefaultEdge> g1 = getOnlyGraphWithVertices(condensation, Set.of(V1, V2));
-        Graph<String, DefaultEdge> g2 = getOnlyGraphWithVertices(condensation, Set.of(V3));
-        Graph<String, DefaultEdge> g3 = getOnlyGraphWithVertices(condensation, Set.of(V4));
-        Graph<String, DefaultEdge> g4 = getOnlyGraphWithVertices(condensation, Set.of(V5));
+        Graph<String, DefaultEdge> g1 = getOnlyGraphWithVertices(condensation, new HashSet<>(Arrays.asList(V1, V2)));
+        Graph<String, DefaultEdge> g2 = getOnlyGraphWithVertices(condensation, new HashSet<>(Arrays.asList(V3)));
+        Graph<String, DefaultEdge> g3 = getOnlyGraphWithVertices(condensation, new HashSet<>(Arrays.asList(V4)));
+        Graph<String, DefaultEdge> g4 = getOnlyGraphWithVertices(condensation, new HashSet<>(Arrays.asList(V5)));
 
         // Check edges inside condensed graphs
-        assertThat(g1.edgeSet(), is(equalTo(Set.of(g.getEdge(V1, V2), g.getEdge(V2, V1)))));
+        assertThat(g1.edgeSet(), is(equalTo(new HashSet<>(Arrays.asList(g.getEdge(V1, V2), g.getEdge(V2, V1))))));
         assertThat(g2.edgeSet(), empty());
         assertThat(g3.edgeSet(), empty());
         assertThat(g4.edgeSet(), empty());
 
         // check edges between SCCs
         Set<DefaultEdge> interSCCEdges =
-            Set.of(condensation.getEdge(g2, g3), condensation.getEdge(g4, g3));
+            new HashSet<>(Arrays.asList(condensation.getEdge(g2, g3), condensation.getEdge(g4, g3)));
         assertThat(condensation.edgeSet(), is(equalTo(interSCCEdges)));
     }
 
@@ -298,17 +298,17 @@ public class StrongConnectivityAlgorithmTest
 
         assertThat(
             condensation.vertexSet().stream().map(Graph::vertexSet).collect(Collectors.toList()),
-            containsInAnyOrder(Set.of(V1, V2), Set.of(V3, V4)));
+            containsInAnyOrder(new HashSet<>(Arrays.asList(V1, V2)), new HashSet<>(Arrays.asList(V3, V4))));
 
-        Graph<String, DefaultEdge> g1 = getOnlyGraphWithVertices(condensation, Set.of(V1, V2));
-        Graph<String, DefaultEdge> g2 = getOnlyGraphWithVertices(condensation, Set.of(V3, V4));
+        Graph<String, DefaultEdge> g1 = getOnlyGraphWithVertices(condensation, new HashSet<>(Arrays.asList(V1, V2)));
+        Graph<String, DefaultEdge> g2 = getOnlyGraphWithVertices(condensation, new HashSet<>(Arrays.asList(V3, V4)));
 
         // Check edges inside condensed graphs
-        assertThat(g1.edgeSet(), is(equalTo(Set.of(g.getEdge(V1, V2), g.getEdge(V2, V1)))));
-        assertThat(g2.edgeSet(), is(equalTo(Set.of(g.getEdge(V3, V4), g.getEdge(V4, V3)))));
+        assertThat(g1.edgeSet(), is(equalTo(new HashSet<>(Arrays.asList(g.getEdge(V1, V2), g.getEdge(V2, V1))))));
+        assertThat(g2.edgeSet(), is(equalTo(new HashSet<>(Arrays.asList(g.getEdge(V3, V4), g.getEdge(V4, V3))))));
 
         // check edges between SCCs
-        assertThat(condensation.edgeSet(), is(equalTo(Set.of(condensation.getEdge(g1, g2)))));
+        assertThat(condensation.edgeSet(), is(equalTo(new HashSet<>(Arrays.asList(condensation.getEdge(g1, g2))))));
 
     }
 
@@ -322,7 +322,7 @@ public class StrongConnectivityAlgorithmTest
     }
 
     @SafeVarargs
-    private <V, E> void assertStronglyConnectedSets(Graph<V, E> graph, Set<V>... expectedSets)
+    private final <V, E> void assertStronglyConnectedSets(Graph<V, E> graph, Set<V>... expectedSets)
     {
         // Test the SCC algorithm for each vertex of the graph as start vertex
         int vertices = graph.vertexSet().size();
@@ -393,7 +393,7 @@ public class StrongConnectivityAlgorithmTest
         }
 
         @SuppressWarnings("unchecked") Set<V>[] rotatedSet =
-            (Set<V>[]) rotatedSets.toArray(i -> new Set<?>[i]);
+            (Set<V>[]) rotatedSets.toArray(new Set<?>[0]);
         return rotatedSet;
     }
 

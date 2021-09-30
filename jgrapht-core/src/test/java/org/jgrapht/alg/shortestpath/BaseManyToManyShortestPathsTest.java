@@ -102,7 +102,7 @@ public abstract class BaseManyToManyShortestPathsTest
 
         ManyToManyShortestPathsAlgorithm.ManyToManyShortestPaths<Integer,
             DefaultWeightedEdge> shortestPaths =
-                getAlgorithm(graph).getManyToManyPaths(Set.of(1), Set.of(2));
+                getAlgorithm(graph).getManyToManyPaths(new HashSet<>(Arrays.asList(1)), new HashSet<>(Arrays.asList(2)));
 
         assertEquals(Double.POSITIVE_INFINITY, shortestPaths.getWeight(1, 2), 1e-9);
         assertNull(shortestPaths.getPath(1, 2));
@@ -119,7 +119,7 @@ public abstract class BaseManyToManyShortestPathsTest
 
         ManyToManyShortestPathsAlgorithm.ManyToManyShortestPaths<Integer,
             DefaultWeightedEdge> shortestPaths =
-                algorithm.getManyToManyPaths(Set.of(4, 1, 2), Set.of(8, 9, 6));
+                algorithm.getManyToManyPaths(new HashSet<>(Arrays.asList(4, 1, 2)), new HashSet<>(Arrays.asList(8, 9, 6)));
 
         assertEquals(2.0, shortestPaths.getWeight(4, 8), 1e-9);
         assertEquals(Arrays.asList(4, 5, 8), shortestPaths.getPath(4, 8).getVertexList());
@@ -160,7 +160,7 @@ public abstract class BaseManyToManyShortestPathsTest
 
         ManyToManyShortestPathsAlgorithm.ManyToManyShortestPaths<Integer,
             DefaultWeightedEdge> shortestPaths =
-                algorithm.getManyToManyPaths(Set.of(1, 4), Set.of(2, 5));
+                algorithm.getManyToManyPaths(new HashSet<>(Arrays.asList(1, 4)), new HashSet<>(Arrays.asList(2, 5)));
 
         assertEquals(1.0, shortestPaths.getWeight(1, 2), 1e-9);
         assertEquals(Arrays.asList(1, 2), shortestPaths.getPath(1, 2).getVertexList());
@@ -187,7 +187,7 @@ public abstract class BaseManyToManyShortestPathsTest
 
         ManyToManyShortestPathsAlgorithm.ManyToManyShortestPaths<Integer,
             DefaultWeightedEdge> shortestPaths =
-                algorithm.getManyToManyPaths(Set.of(1, 5, 9), Set.of(1, 5, 9));
+                algorithm.getManyToManyPaths(new HashSet<>(Arrays.asList(1, 5, 9)), new HashSet<>(Arrays.asList(1, 5, 9)));
 
         assertEquals(0.0, shortestPaths.getWeight(1, 1), 1e-9);
         assertEquals(Collections.singletonList(1), shortestPaths.getPath(1, 1).getVertexList());
@@ -225,7 +225,7 @@ public abstract class BaseManyToManyShortestPathsTest
 
         ManyToManyShortestPathsAlgorithm.ManyToManyShortestPaths<Integer,
             DefaultWeightedEdge> shortestPaths =
-                algorithm.getManyToManyPaths(Set.of(2, 4, 6), Set.of(2, 4, 6));
+                algorithm.getManyToManyPaths(new HashSet<>(Arrays.asList(2, 4, 6)), new HashSet<>(Arrays.asList(2, 4, 6)));
 
         assertEquals(0.0, shortestPaths.getWeight(2, 2), 1e-9);
         assertEquals(Collections.singletonList(2), shortestPaths.getPath(2, 2).getVertexList());
@@ -483,7 +483,7 @@ public abstract class BaseManyToManyShortestPathsTest
 
         return graph;
     }
-    
+
     protected void testNoPathMultiSet()
     {
         Graph<Integer, DefaultWeightedEdge> graph =
@@ -494,7 +494,7 @@ public abstract class BaseManyToManyShortestPathsTest
 
         ManyToManyShortestPathsAlgorithm.ManyToManyShortestPaths<Integer,
             DefaultWeightedEdge> shortestPaths =
-                getAlgorithm(graph).getManyToManyPaths(Set.of(1), Set.of(2, 3));
+                getAlgorithm(graph).getManyToManyPaths(new HashSet<>(Arrays.asList(1)), new HashSet<>(Arrays.asList(2, 3)));
 
         assertEquals(Double.POSITIVE_INFINITY, shortestPaths.getWeight(1, 2), 1e-9);
         assertEquals(Double.POSITIVE_INFINITY, shortestPaths.getWeight(1, 3), 1e-9);

@@ -56,9 +56,9 @@ public class GEXFExporter<V, E>
     private static final String TYPE_ATTRIBUTE_NAME = "type";
 
     private static final Set<String> VERTEX_RESERVED_ATTRIBUTES =
-        Set.of("id", LABEL_ATTRIBUTE_NAME);
+        new HashSet<>(Arrays.asList("id", LABEL_ATTRIBUTE_NAME));
     private static final Set<String> EDGE_RESERVED_ATTRIBUTES =
-        Set.of("id", "type", LABEL_ATTRIBUTE_NAME, "source", "target", WEIGHT_ATTRIBUTE_NAME);
+        new HashSet<>(Arrays.asList("id", "type", LABEL_ATTRIBUTE_NAME, "source", "target", WEIGHT_ATTRIBUTE_NAME));
 
     private int totalVertexAttributes = 0;
     private Map<String, AttributeDetails> registeredVertexAttributes;
@@ -112,7 +112,7 @@ public class GEXFExporter<V, E>
 
         /**
          * Get a string representation of the attribute category
-         * 
+         *
          * @return the string representation of the attribute category
          */
         public String toString()
@@ -149,7 +149,7 @@ public class GEXFExporter<V, E>
 
     /**
      * Return if a particular parameter of the exporter is enabled
-     * 
+     *
      * @param p the parameter
      * @return {@code true} if the parameter is set, {@code false} otherwise
      */
@@ -160,7 +160,7 @@ public class GEXFExporter<V, E>
 
     /**
      * Set the value of a parameter of the exporter
-     * 
+     *
      * @param p the parameter
      * @param value the value to set
      */
@@ -175,7 +175,7 @@ public class GEXFExporter<V, E>
 
     /**
      * Register a GEXF Attribute
-     * 
+     *
      * @param name the attribute name
      * @param category the attribute category
      * @param type the attribute type
@@ -187,7 +187,7 @@ public class GEXFExporter<V, E>
 
     /**
      * Register a GEXF Attribute
-     * 
+     *
      * @param name the attribute name
      * @param category the attribute category
      * @param type the attribute type
@@ -201,7 +201,7 @@ public class GEXFExporter<V, E>
 
     /**
      * Register a GEXF Attribute
-     * 
+     *
      * @param name the attribute name
      * @param category the attribute category
      * @param type the attribute type
@@ -239,7 +239,7 @@ public class GEXFExporter<V, E>
 
     /**
      * Unregister a GraphML-Attribute
-     * 
+     *
      * @param name the attribute name
      * @param category the attribute category
      */
@@ -266,7 +266,7 @@ public class GEXFExporter<V, E>
 
     /**
      * Get the creator for the meta field.
-     * 
+     *
      * @return the creator for the meta field
      */
     public String getCreator()
@@ -276,7 +276,7 @@ public class GEXFExporter<V, E>
 
     /**
      * Set the creator for the meta field.
-     * 
+     *
      * @param creator the creator for the meta field
      */
     public void setCreator(String creator)
@@ -286,7 +286,7 @@ public class GEXFExporter<V, E>
 
     /**
      * Get the keywords for the meta field.
-     * 
+     *
      * @return the keywords for the meta field
      */
     public String getKeywords()
@@ -296,7 +296,7 @@ public class GEXFExporter<V, E>
 
     /**
      * Set the keywords for the meta field.
-     * 
+     *
      * @param keywords the keywords for the meta field
      */
     public void setKeywords(String keywords)
@@ -306,7 +306,7 @@ public class GEXFExporter<V, E>
 
     /**
      * Get the description for the meta field.
-     * 
+     *
      * @return the description for the meta field
      */
     public String getDescription()
@@ -316,7 +316,7 @@ public class GEXFExporter<V, E>
 
     /**
      * Set the description for the meta field.
-     * 
+     *
      * @param description the description for the meta field
      */
     public void setDescription(String description)

@@ -67,10 +67,10 @@ public class JGraphXAdapterDemo
     {
         // create a JGraphT graph
         ListenableGraph<String, DefaultEdge> g =
-            new DefaultListenableGraph<>(new DefaultDirectedGraph<>(DefaultEdge.class));
+            new DefaultListenableGraph<String, DefaultEdge>(new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class));
 
         // create a visualization using JGraph, via an adapter
-        jgxAdapter = new JGraphXAdapter<>(g);
+        jgxAdapter = new JGraphXAdapter<String, DefaultEdge>(g);
 
         setPreferredSize(DEFAULT_SIZE);
         mxGraphComponent component = new mxGraphComponent(jgxAdapter);

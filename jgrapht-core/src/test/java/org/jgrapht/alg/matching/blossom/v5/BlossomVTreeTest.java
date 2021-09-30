@@ -88,7 +88,7 @@ public class BlossomVTreeTest
             actualNodes.add(iterator.next());
         }
         assertEquals(7, i);
-        assertEquals(Set.of(node1, node2, node3, node4, node5, node6, node7), actualNodes);
+        assertEquals(new HashSet<>(Arrays.asList(node1, node2, node3, node4, node5, node6, node7)), actualNodes);
     }
 
     @Test
@@ -108,8 +108,8 @@ public class BlossomVTreeTest
         BlossomVTreeEdge treeEdge2 = BlossomVTree.addTreeEdge(tree1, tree3);
         BlossomVTreeEdge treeEdge3 = BlossomVTree.addTreeEdge(tree4, tree1);
         BlossomVTreeEdge treeEdge4 = BlossomVTree.addTreeEdge(tree5, tree1);
-        Set<BlossomVTreeEdge> expectedOutEdges = Set.of(treeEdge1, treeEdge2);
-        Set<BlossomVTreeEdge> expectedInEdges = Set.of(treeEdge3, treeEdge4);
+        Set<BlossomVTreeEdge> expectedOutEdges = new HashSet<>(Arrays.asList(treeEdge1, treeEdge2));
+        Set<BlossomVTreeEdge> expectedInEdges = new HashSet<>(Arrays.asList(treeEdge3, treeEdge4));
         Set<BlossomVTreeEdge> actualOutEdges = new HashSet<>();
         Set<BlossomVTreeEdge> actualInEdges = new HashSet<>();
         for (BlossomVTree.TreeEdgeIterator iterator = tree1.treeEdgeIterator();

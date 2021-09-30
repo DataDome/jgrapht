@@ -32,12 +32,12 @@ import java.util.function.*;
  * For a description of the format see <a href=
  * "https://github.com/GunterMueller/UNI_PASSAU_FMI_Graph_Drawing/blob/master/GML/gml-technical-report.pdf">
  * https://github.com/GunterMueller/UNI_PASSAU_FMI_Graph_Drawing/blob/master/GML/gml-technical-report.pdf</a>.
- * 
+ *
  * <p>
  * The behavior of the exporter such as whether to print vertex labels, edge labels, and/or edge
  * weights can be adjusted using the {@link #setParameter(Parameter, boolean) setParameter} method.
  * When exporting labels, the exporter escapes them as Java strings.
- * 
+ *
  * @param <V> the graph vertex type
  * @param <E> the graph edge type
  *
@@ -59,9 +59,9 @@ public class GmlExporter<V, E>
     private static final String LABEL_ATTRIBUTE_KEY = "label";
     private static final String WEIGHT_ATTRIBUTE_KEY = "weight";
 
-    private static final Set<String> FORBIDDEN_VERTEX_CUSTOM_ATTRIBUTE_KEYS = Set.of("id");
+    private static final Set<String> FORBIDDEN_VERTEX_CUSTOM_ATTRIBUTE_KEYS = new HashSet<>(Arrays.asList("id"));
     private static final Set<String> FORBIDDEN_EDGE_CUSTOM_ATTRIBUTE_KEYS =
-        Set.of("id", "source", "target");
+        new HashSet<>(Arrays.asList("id", "source", "target"));
 
     private final Set<Parameter> parameters;
 
@@ -157,7 +157,7 @@ public class GmlExporter<V, E>
 
     /**
      * Return if a particular parameter of the exporter is enabled
-     * 
+     *
      * @param p the parameter
      * @return {@code true} if the parameter is set, {@code false} otherwise
      */
@@ -168,7 +168,7 @@ public class GmlExporter<V, E>
 
     /**
      * Set the value of a parameter of the exporter
-     * 
+     *
      * @param p the parameter
      * @param value the value to set
      */

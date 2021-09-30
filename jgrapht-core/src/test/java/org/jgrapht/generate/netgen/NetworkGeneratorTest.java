@@ -342,7 +342,7 @@ public class NetworkGeneratorTest
     @Test
     public void testMinCostFlow_MinimumArcNum()
     {
-        List<Integer> tNodes = List.of(0, 1, 2, 5, 10, 20, 30);
+        List<Integer> tNodes = Arrays.asList(0, 1, 2, 5, 10, 20, 30);
         for (int sourceNum = 1; sourceNum < 4; sourceNum++) {
             for (int tSourceNum = 0; tSourceNum <= sourceNum; tSourceNum++) {
                 for (int sinkNum = 1; sinkNum < 4; sinkNum++) {
@@ -367,7 +367,7 @@ public class NetworkGeneratorTest
     @Test
     public void testMinCostFlow_MaximumArcNum()
     {
-        List<Integer> tNodes = List.of(0, 1, 2, 5, 10, 20, 30);
+        List<Integer> tNodes = Arrays.asList(0, 1, 2, 5, 10, 20, 30);
         for (int sourceNum = 1; sourceNum < 4; sourceNum++) {
             for (int tSourceNum = 0; tSourceNum <= sourceNum; tSourceNum++) {
                 for (int sinkNum = 1; sinkNum < 4; sinkNum++) {

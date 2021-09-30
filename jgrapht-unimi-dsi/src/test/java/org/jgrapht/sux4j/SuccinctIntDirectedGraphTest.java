@@ -22,6 +22,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Supplier;
@@ -285,8 +286,8 @@ public class SuccinctIntDirectedGraphTest
     @Test
     public void testOutgoingOnly()
     {
-        final List<Pair<Integer, Integer>> edges = List
-            .of(Pair.of(0, 1), Pair.of(0, 2), Pair.of(1, 2), Pair.of(2, 1));
+        final List<Pair<Integer, Integer>> edges = Arrays
+            .asList(Pair.of(0, 1), Pair.of(0, 2), Pair.of(1, 2), Pair.of(2, 1));
         final SuccinctIntDirectedGraph s = new SuccinctIntDirectedGraph(3, edges, false);
         assertEquals(2, s.outDegreeOf(0));
     }

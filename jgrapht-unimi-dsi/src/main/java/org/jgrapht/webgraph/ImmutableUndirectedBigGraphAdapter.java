@@ -219,7 +219,7 @@ public class ImmutableUndirectedBigGraphAdapter
         return new ImmutableUndirectedBigGraphAdapter(immutableGraph.copy());
     }
 
-    private final GraphIterables<Long, LongLongSortedPair> iterables = new GraphIterables<>()
+    private final GraphIterables<Long, LongLongSortedPair> iterables = new GraphIterables<Long, LongLongSortedPair>()
     {
         @Override
         public ImmutableUndirectedBigGraphAdapter getGraph()
@@ -251,7 +251,7 @@ public class ImmutableUndirectedBigGraphAdapter
         public Iterable<LongLongSortedPair> edgesOf(final Long vertex)
         {
             final long x = vertex;
-            return () -> new Iterator<>()
+            return () -> new Iterator<LongLongSortedPair>()
             {
                 final LazyLongIterator successors = immutableGraph.successors(x);
                 long y = -1;
@@ -300,7 +300,7 @@ public class ImmutableUndirectedBigGraphAdapter
         @Override
         public Iterable<LongLongSortedPair> edges()
         {
-            return () -> new Iterator<>()
+            return () -> new Iterator<LongLongSortedPair>()
             {
                 final NodeIterator nodeIterator = immutableGraph.nodeIterator();
                 LazyLongIterator successors = LazyLongIterators.EMPTY_ITERATOR;

@@ -415,7 +415,7 @@ public class SuccinctDirectedGraph
             final int sourceShift = graph.sourceShift;
             final long targetMask = graph.targetMask;
 
-            return () -> new Iterator<>()
+            return () -> new Iterator<IntIntPair>()
             {
                 private final EliasFanoIndexedMonotoneLongBigListIterator iterator = graph.successors.iterator();
                 private final int n = graph.n;
@@ -451,7 +451,7 @@ public class SuccinctDirectedGraph
             final EliasFanoIndexedMonotoneLongBigList successors = graph.successors;
             final LongBigListIterator iterator = graph.predecessors.listIterator(result[0]);
 
-            return () -> new Iterator<>()
+            return () -> new Iterator<IntIntPair>()
             {
                 int i = d;
                 IntIntPair edge = null;
@@ -496,7 +496,7 @@ public class SuccinctDirectedGraph
             final LongBigListIterator iterator = graph.successors.listIterator(result[0]);
             final long base = (long) x << sourceShift;
 
-            return () -> new Iterator<>() {
+            return () -> new Iterator<IntIntPair>() {
                 private int d = (int) (result[1] - result[0]);
 
                 @Override

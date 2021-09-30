@@ -304,7 +304,7 @@ public class SuccinctUndirectedGraph
             final int sourceShift = graph.sourceShift;
             final long targetMask = graph.targetMask;
 
-            return () -> new Iterator<>()
+            return () -> new Iterator<IntIntSortedPair>()
             {
                 private final EliasFanoIndexedMonotoneLongBigListIterator iterator =
                     graph.successors.iterator();
@@ -338,10 +338,10 @@ public class SuccinctUndirectedGraph
             final long targetMask = graph.targetMask;
             final long[] result = new long[2];
             graph.cumulativeOutdegrees.get(source, result);
-            final var iterator = graph.successors.listIterator(result[0]);
+            final EliasFanoIndexedMonotoneLongBigList.EliasFanoIndexedMonotoneLongBigListIterator iterator = graph.successors.listIterator(result[0]);
             final long base = (long) source << sourceShift;
 
-            return () -> new Iterator<>()
+            return () -> new Iterator<IntIntSortedPair>()
             {
                 private int d = (int) (result[1] - result[0]);
 
@@ -369,7 +369,7 @@ public class SuccinctUndirectedGraph
             final int d = (int) (result[1] - result[0]);
             final LongBigListIterator iterator = graph.predecessors.listIterator(result[0]);
 
-            return () -> new Iterator<>()
+            return () -> new Iterator<IntIntSortedPair>()
             {
                 int i = d;
                 IntIntSortedPair edge = null;

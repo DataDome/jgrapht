@@ -205,7 +205,7 @@ public class ImmutableUndirectedGraphAdapter
         return new ImmutableUndirectedGraphAdapter(immutableGraph.copy());
     }
 
-    private final GraphIterables<Integer, IntIntSortedPair> iterables = new GraphIterables<>()
+    private final GraphIterables<Integer, IntIntSortedPair> iterables = new GraphIterables<Integer, IntIntSortedPair>()
     {
         @Override
         public ImmutableUndirectedGraphAdapter getGraph()
@@ -237,7 +237,7 @@ public class ImmutableUndirectedGraphAdapter
         public Iterable<IntIntSortedPair> edgesOf(final Integer vertex)
         {
             final int x = vertex;
-            return () -> new Iterator<>()
+            return () -> new Iterator<IntIntSortedPair>()
             {
                 final LazyIntIterator successors = immutableGraph.successors(x);
                 int y = successors.nextInt();
@@ -287,7 +287,7 @@ public class ImmutableUndirectedGraphAdapter
         @Override
         public Iterable<IntIntSortedPair> edges()
         {
-            return () -> new Iterator<>()
+            return () -> new Iterator<IntIntSortedPair>()
             {
                 final NodeIterator nodeIterator = immutableGraph.nodeIterator();
                 LazyIntIterator successors = LazyIntIterators.EMPTY_ITERATOR;

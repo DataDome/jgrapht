@@ -76,7 +76,7 @@ public class DirectedGraphDemo
 
         // computes all the strongly connected components of the directed graph
         StrongConnectivityAlgorithm<String, DefaultEdge> scAlg =
-            new KosarajuStrongConnectivityInspector<>(directedGraph);
+            new KosarajuStrongConnectivityInspector<String, DefaultEdge>(directedGraph);
         List<Graph<String, DefaultEdge>> stronglyConnectedSubgraphs =
             scAlg.getStronglyConnectedComponents();
 
@@ -91,7 +91,7 @@ public class DirectedGraphDemo
         // exists for our particular directed graph.
         System.out.println("Shortest path from i to c:");
         DijkstraShortestPath<String, DefaultEdge> dijkstraAlg =
-            new DijkstraShortestPath<>(directedGraph);
+            new DijkstraShortestPath<String, DefaultEdge>(directedGraph);
         SingleSourcePaths<String, DefaultEdge> iPaths = dijkstraAlg.getPaths("i");
         System.out.println(iPaths.getPath("c") + "\n");
 

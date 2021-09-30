@@ -19,6 +19,8 @@ package org.jgrapht.nio.json;
 
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.function.Function;
@@ -33,7 +35,7 @@ import org.jgrapht.nio.IntegerIdProvider;
 
 /**
  * Exports a graph using <a href="https://tools.ietf.org/html/rfc8259">JSON</a>.
- * 
+ *
  * <p>
  * The output is one object which contains:
  * <ul>
@@ -41,16 +43,16 @@ import org.jgrapht.nio.IntegerIdProvider;
  * <li>A member named <code>edges</code> whose value is an array of edges.
  * <li>Two members named <code>creator</code> and <code>version</code> for metadata.
  * </ul>
- * 
+ *
  * <p>
  * Each node contains an identifier and possibly other attributes. Similarly each edge contains the
  * source and target vertices, a possible identifier and possible other attributes. All these can be
  * adjusted using the setters. The default constructor constructs integer identifiers using an
  * {@link IntegerIdProvider} for both vertices and edges and does not output any custom attributes.
- * 
+ *
  * @param <V> the graph vertex type
  * @param <E> the graph edge type
- * 
+ *
  * @author Dimitrios Michail
  */
 public class JSONExporter<V, E>
@@ -84,7 +86,7 @@ public class JSONExporter<V, E>
 
     /**
      * Creates a new exporter.
-     * 
+     *
      * @param vertexIdProvider for generating vertex identifiers. Must not be null.
      */
     public JSONExporter(Function<V, String> vertexIdProvider)
@@ -94,7 +96,7 @@ public class JSONExporter<V, E>
 
     /**
      * Get the name used for the vertices collection in the file.
-     * 
+     *
      * @return the name used for the vertices collection in the file.
      */
     public String getVerticesCollectionName()
@@ -104,7 +106,7 @@ public class JSONExporter<V, E>
 
     /**
      * Set the name used for the vertices collection in the file.
-     * 
+     *
      * @param verticesCollectionName the name
      */
     public void setVerticesCollectionName(String verticesCollectionName)
@@ -114,7 +116,7 @@ public class JSONExporter<V, E>
 
     /**
      * Get the name used for the edges collection in the file.
-     * 
+     *
      * @return the name used for the edges collection in the file.
      */
     public String getEdgesCollectionName()
@@ -124,7 +126,7 @@ public class JSONExporter<V, E>
 
     /**
      * Set the name used for the edges collection in the file.
-     * 
+     *
      * @param edgesCollectionName the name
      */
     public void setEdgesCollectionName(String edgesCollectionName)
@@ -256,7 +258,7 @@ public class JSONExporter<V, E>
         if (!edgeAttributeProvider.isPresent()) {
             return;
         }
-        Set<String> forbidden = Set.of("id", "source", "target");
+        Set<String> forbidden = new HashSet<>(Arrays.asList("id", "source", "target"));
         edgeAttributeProvider
             .get().apply(e).entrySet().stream().filter(entry -> !forbidden.contains(entry.getKey()))
             .forEach(entry -> {

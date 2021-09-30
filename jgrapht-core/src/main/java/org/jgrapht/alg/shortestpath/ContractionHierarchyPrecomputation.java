@@ -265,7 +265,7 @@ public class ContractionHierarchyPrecomputation<V, E>
         computeInitialPrioritiesConsumers = new ArrayList<>(parallelism);
         for (int i = 0; i < parallelism; ++i) {
             tasks.add(new ContractionTask(i));
-            computeInitialPrioritiesConsumers.add(new Consumer<>()
+            computeInitialPrioritiesConsumers.add(new Consumer<ContractionVertex<V>>()
             {
                 Random random = randomSupplier.get();
 

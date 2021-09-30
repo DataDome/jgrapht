@@ -55,7 +55,7 @@ public class SupplierUtil
 
     /**
      * Create a supplier from a class which calls the default constructor.
-     * 
+     *
      * @param clazz the class
      * @return the supplier
      * @param <T> the type of results supplied by this supplier
@@ -75,8 +75,7 @@ public class SupplierUtil
         try {
             final Constructor<? extends T> constructor = clazz.getDeclaredConstructor();
             if ((!Modifier.isPublic(constructor.getModifiers())
-                || !Modifier.isPublic(constructor.getDeclaringClass().getModifiers()))
-                && !constructor.canAccess(null))
+                || !Modifier.isPublic(constructor.getDeclaringClass().getModifiers())))
             {
                 constructor.setAccessible(true);
             }
@@ -97,7 +96,7 @@ public class SupplierUtil
 
     /**
      * Create a default edge supplier.
-     * 
+     *
      * @return a default edge supplier
      */
     public static Supplier<DefaultEdge> createDefaultEdgeSupplier()
@@ -107,7 +106,7 @@ public class SupplierUtil
 
     /**
      * Create a default weighted edge supplier.
-     * 
+     *
      * @return a default weighted edge supplier
      */
     public static Supplier<DefaultWeightedEdge> createDefaultWeightedEdgeSupplier()
@@ -117,7 +116,7 @@ public class SupplierUtil
 
     /**
      * Create an integer supplier which returns a sequence starting from zero.
-     * 
+     *
      * @return an integer supplier
      */
     public static Supplier<Integer> createIntegerSupplier()
@@ -127,7 +126,7 @@ public class SupplierUtil
 
     /**
      * Create an integer supplier which returns a sequence starting from a specific numbers.
-     * 
+     *
      * @param start where to start the sequence
      * @return an integer supplier
      */
@@ -140,7 +139,7 @@ public class SupplierUtil
 
     /**
      * Create a long supplier which returns a sequence starting from zero.
-     * 
+     *
      * @return a long supplier
      */
     public static Supplier<Long> createLongSupplier()
@@ -150,7 +149,7 @@ public class SupplierUtil
 
     /**
      * Create a long supplier which returns a sequence starting from a specific numbers.
-     * 
+     *
      * @param start where to start the sequence
      * @return a long supplier
      */
@@ -164,7 +163,7 @@ public class SupplierUtil
     /**
      * Create a string supplier which returns unique strings. The returns strings are simply
      * integers starting from zero.
-     * 
+     *
      * @return a string supplier
      */
     public static Supplier<String> createStringSupplier()
@@ -174,7 +173,7 @@ public class SupplierUtil
 
     /**
      * Create a string supplier which returns random UUIDs.
-     * 
+     *
      * @return a string supplier
      */
     @SuppressWarnings("unchecked")
@@ -186,7 +185,7 @@ public class SupplierUtil
     /**
      * Create a string supplier which returns unique strings. The returns strings are simply
      * integers starting from start.
-     * 
+     *
      * @param start where to start the sequence
      * @return a string supplier
      */

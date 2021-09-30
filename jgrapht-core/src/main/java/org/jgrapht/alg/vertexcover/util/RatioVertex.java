@@ -41,10 +41,10 @@ public class RatioVertex<V>
 
     /**
      * unique id, used to guarantee that compareTo never returns 0
-     * 
+     *
      * @deprecated use {@link #id} instead
      **/
-    @Deprecated(since = "1.5.2", forRemoval = true)
+    @Deprecated
     public final int ID; // @CS.suppress[MemberName]
 
     /** unique id, used to guarantee that compareTo never returns 0 **/

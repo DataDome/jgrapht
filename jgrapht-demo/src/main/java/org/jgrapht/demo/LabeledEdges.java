@@ -41,7 +41,7 @@ public class LabeledEdges
     public static void main(String[] args)
     {
         // @example:create:begin
-        Graph<String, RelationshipEdge> graph = new DefaultDirectedGraph<>(RelationshipEdge.class);
+        Graph<String, RelationshipEdge> graph = new DefaultDirectedGraph<String, RelationshipEdge>(RelationshipEdge.class);
 
         ArrayList<String> people = new ArrayList<String>();
         people.add("John");
@@ -106,7 +106,7 @@ class RelationshipEdge
      * Constructs a relationship edge
      *
      * @param label the label of the new edge.
-     * 
+     *
      */
     public RelationshipEdge(String label)
     {

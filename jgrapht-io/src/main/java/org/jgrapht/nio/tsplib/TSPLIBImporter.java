@@ -34,7 +34,7 @@ import static java.util.Arrays.*;
 /**
  * Importer for files in the
  * <a href="http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/">TSPLIB95</a> format.
- * 
+ *
  * <p>
  * This importer reads the nodes of a <em>Symmetric travelling salesman problem</em> instance from a
  * file and creates a {@link GraphTests#isComplete(Graph) complete graph} and provides further data
@@ -79,7 +79,7 @@ import static java.util.Arrays.*;
  * Waterlo</a> provides more problem instances, among others a World TSP and instances based on
  * cities of different countries.
  * </p>
- * 
+ *
  * @author Hannes Wellmann
  * @param <V> the graph vertex type
  * @param <E> the graph edge type
@@ -120,7 +120,7 @@ public class TSPLIBImporter<V, E>
     /**
      * Container for the entry values read from <em>the specification part</em> of a file in
      * <em>TSPLIB95</em> format.
-     * 
+     *
      * @author Hannes Wellmann
      */
     public static class Specification
@@ -142,7 +142,7 @@ public class TSPLIBImporter<V, E>
 
         /**
          * Returns the value of the <em>NAME</em> keyword in the imported file.
-         * 
+         *
          * @return the value of the <em>NAME</em> keyword
          */
         public String getName()
@@ -152,7 +152,7 @@ public class TSPLIBImporter<V, E>
 
         /**
          * Returns the value of the <em>TYPE</em> keyword in the imported file.
-         * 
+         *
          * @return the value of the <em>TYPE</em> keyword
          */
         public String getType()
@@ -162,7 +162,7 @@ public class TSPLIBImporter<V, E>
 
         /**
          * Returns the {@link List} of values for the <em>COMMENT</em> keyword in the imported file.
-         * 
+         *
          * @return the value of the <em>COMMENT</em> keyword
          */
         public List<String> getComments()
@@ -172,7 +172,7 @@ public class TSPLIBImporter<V, E>
 
         /**
          * Returns the value of the <em>DIMENSION</em> keyword in the imported file.
-         * 
+         *
          * @return the value of the <em>DIMENSION</em> keyword
          */
         public Integer getDimension()
@@ -182,7 +182,7 @@ public class TSPLIBImporter<V, E>
 
         /**
          * Returns the value of the <em>CAPACITY</em> keyword in the imported file.
-         * 
+         *
          * @return the value of the <em>CAPACITY</em> keyword
          */
         public Integer getCapacity()
@@ -192,7 +192,7 @@ public class TSPLIBImporter<V, E>
 
         /**
          * Returns the value of the <em>EDGE_WEIGHT_TYPE</em> keyword in the imported file.
-         * 
+         *
          * @return the value of the <em>EDGE_WEIGHT_TYPE</em> keyword
          */
         public String getEdgeWeightType()
@@ -202,7 +202,7 @@ public class TSPLIBImporter<V, E>
 
         /**
          * Returns the value of the <em>EDGE_WEIGHT_FORMAT</em> keyword in the imported file.
-         * 
+         *
          * @return the value of the <em>EDGE_WEIGHT_FORMAT</em> keyword
          */
         public String getEdgeWeightFormat()
@@ -212,7 +212,7 @@ public class TSPLIBImporter<V, E>
 
         /**
          * Returns the value of the <em>EDGE_DATA_FORMAT</em> keyword in the imported file.
-         * 
+         *
          * @return the value of the <em>EDGE_DATA_FORMAT</em> keyword
          */
         public String getEdgeDataFormat()
@@ -222,7 +222,7 @@ public class TSPLIBImporter<V, E>
 
         /**
          * Returns the value of the <em>NODE_COORD_TYPE</em> keyword in the imported file.
-         * 
+         *
          * @return the value of the <em>NODE_COORD_TYPE</em> keyword
          */
         public String getNodeCoordType()
@@ -232,7 +232,7 @@ public class TSPLIBImporter<V, E>
 
         /**
          * Returns the value of the <em>DISPLAY_DATA_TYPE</em> keyword in the imported file.
-         * 
+         *
          * @return the value of the <em>DISPLAY_DATA_TYPE</em> keyword
          */
         public String getDisplayDataType()
@@ -243,7 +243,7 @@ public class TSPLIBImporter<V, E>
 
     /**
      * Container for the meta data of an imported <em>TSPLIB95</em> file.
-     * 
+     *
      * @author Hannes Wellmann
      * @param <V> the graph vertex type
      * @param <E> the graph edge type
@@ -265,7 +265,7 @@ public class TSPLIBImporter<V, E>
         /**
          * Returns the {@link Specification} instance containing all values from the specification
          * part of a <em>TSPLIB95</em> file.
-         * 
+         *
          * @return the {@code Specification} of an imported <em>TSPLIB95</em> file
          */
         public Specification getSpecification()
@@ -276,7 +276,7 @@ public class TSPLIBImporter<V, E>
         /**
          * Returns the mapping of vertex to corresponding node imported from the
          * <em>NODE_COORD_SECTION</em> of a <em>TSPLIB95</em> file.
-         * 
+         *
          * @return the mapping of vertex to corresponding node
          */
         public Map<V, Node> getVertexToNodeMapping()
@@ -291,7 +291,7 @@ public class TSPLIBImporter<V, E>
          * Note that a tour can be imported by {@link TSPLIBImporter#importGraph(Graph, Reader)} or
          * {@link TSPLIBImporter#importTour(Metadata, Reader)} .
          * </p>
-         * 
+         *
          * @return the vertex tour from the file or null
          */
         public List<V> getTour()
@@ -303,7 +303,7 @@ public class TSPLIBImporter<V, E>
          * Returns true if for the imported graph all vertices have distinct coordinates and non of
          * them have {@link Arrays#equals(Object) equal} {@link Node#getCoordinates() coordinate
          * values} , else false.
-         * 
+         *
          * @return true if no equally located nodes were imported from the file, else false
          * @throws IllegalStateException if no graph was imported
          */
@@ -339,7 +339,7 @@ public class TSPLIBImporter<V, E>
          * location has a different distance, so there are no two other locations that have the same
          * distance from that location.
          * </p>
-         * 
+         *
          * @return true if all touching edges of each vertex have different weight, else false
          * @throws IllegalStateException if no graph was imported
          */
@@ -370,7 +370,7 @@ public class TSPLIBImporter<V, E>
 
     /**
      * A node imported from the <em>NODE_COORD_SECTION</em> of a <em>TSPLIB95</em>-file.
-     * 
+     *
      * @author Hannes Wellmann
      */
     public static class Node
@@ -388,7 +388,7 @@ public class TSPLIBImporter<V, E>
 
         /**
          * Returns the number of this node as specified in the source <em>TSPLIB95</em>-file.
-         * 
+         *
          * @return the number of this node
          */
         public int getNumber()
@@ -398,7 +398,7 @@ public class TSPLIBImporter<V, E>
 
         /**
          * Returns the number of elements the coordinates of this node have (either two or three).
-         * 
+         *
          * @return the number of coordinate elements of this node
          */
         public int getCoordinatesLength()
@@ -409,7 +409,7 @@ public class TSPLIBImporter<V, E>
         /**
          * Returns the value of the coordinate element with zero-based index <em>i</em> of this
          * node.
-         * 
+         *
          * @param i the index of the coordinate element
          * @return the value of the <em>i-th</em> coordinate element
          */
@@ -420,7 +420,7 @@ public class TSPLIBImporter<V, E>
 
         /**
          * Returns a copy of the coordinates of this node.
-         * 
+         *
          * @return the coordinates of this node
          */
         public double[] getCoordinates()
@@ -447,7 +447,7 @@ public class TSPLIBImporter<V, E>
     /**
      * Returns the {@link Metadata} of the latest imported file or null, if no import completed yet
      * or the latest import failed.
-     * 
+     *
      * @return {@code TSPLIBFileData} of the latest import
      */
     public Metadata<V, E> getMetadata()
@@ -478,7 +478,7 @@ public class TSPLIBImporter<V, E>
      * This implementation is not thread-safe and must be synchronized externally if called by
      * concurrent threads.
      * </p>
-     * 
+     *
      * @param graph the graph into which this importer writes, must weighted.
      * @throws IllegalArgumentException if the specified {@code graph} is not weighted
      */
@@ -528,7 +528,7 @@ public class TSPLIBImporter<V, E>
 
     /**
      * Reads all nodes of the NODE_COORD_SECTION and fills the graph of the data accordingly.
-     * 
+     *
      * @return a mapping from created graph {@link V vertex} to corresponding imported {@link Node}
      */
     private Map<V, Node> readNodeCoordinateSection(Iterator<String> lines, Metadata<V, E> data)
@@ -656,7 +656,7 @@ public class TSPLIBImporter<V, E>
      * This implementation is not thread-safe and must be synchronized externally if called by
      * concurrent threads.
      * </p>
-     * 
+     *
      * @param referenceMetadata the {@code Metadata} defining the available vertices and their
      *        {@code Nodes}.
      * @param in the input reader
@@ -698,7 +698,7 @@ public class TSPLIBImporter<V, E>
     /**
      * Reads a tour of the TOUR_SECTION and returns the List of ordered vertex numbers describing
      * the tour.
-     * 
+     *
      * @return the list of vertex number describing the tour
      */
     private List<Integer> readTourSection(Iterator<String> lines, Integer dimension)
@@ -835,9 +835,21 @@ public class TSPLIBImporter<V, E>
         }
     }
 
+    private static String strip(String value) {
+        int from = 0;
+        while (Character.isWhitespace(value.charAt(from))) {
+            from++;
+        }
+        int to = value.length() - 1;
+        while (Character.isWhitespace(value.charAt(to))) {
+            to--;
+        }
+        return value.substring(from, to + 1);
+    }
+
     public String extractValueBeforeWhitespace(String value)
     {
-        return WHITE_SPACE.split(value.strip(), 2)[0]; // discard everything after first white-space
+        return WHITE_SPACE.split(strip(value), 2)[0]; // discard everything after first white-space
     }
 
     // read utilities
@@ -845,7 +857,30 @@ public class TSPLIBImporter<V, E>
     private static Iterator<String> getLineIterator(Reader in)
     {
         BufferedReader reader = new BufferedReader(in);
-        return Stream.iterate(readLine(reader), Objects::nonNull, l -> readLine(reader)).iterator();
+        return new Iterator<String>() {
+            String advanceString;
+
+            @Override
+            public boolean hasNext() {
+                if (advanceString == null) {
+                    advanceString = readLine(reader);
+                }
+                return advanceString != null;
+            }
+
+            @Override
+            public String next() {
+                if (advanceString == null) {
+                    advanceString = readLine(reader);
+                }
+                String value = advanceString;
+                advanceString = null;
+                if (value == null) {
+                    throw new NoSuchElementException();
+                }
+                return value;
+            }
+        };
     }
 
     private static String readLine(BufferedReader reader)
@@ -853,7 +888,7 @@ public class TSPLIBImporter<V, E>
         try {
             String line = reader.readLine();
             if (line != null) {
-                line = line.strip();
+                line = strip(line);
                 return "EOF".equals(line) ? null : line;
             }
             return null;
@@ -864,7 +899,7 @@ public class TSPLIBImporter<V, E>
 
     private static String getKey(String[] keyValue)
     {
-        return keyValue[0].strip().toUpperCase();
+        return strip(keyValue[0]).toUpperCase();
     }
 
     private String getValue(String[] keyValue)
@@ -872,7 +907,7 @@ public class TSPLIBImporter<V, E>
         if (keyValue.length < 2) {
             throw new IllegalStateException("Missing value for key " + getKey(keyValue));
         }
-        return keyValue[1].strip();
+        return strip(keyValue[1]);
     }
 
     private void requireNotSet(Object target, String keyName)
@@ -903,7 +938,7 @@ public class TSPLIBImporter<V, E>
     /**
      * Computes the distance of the two nodes n1 and n2 according to the {@code EUC_2D} or
      * {@code EUC_3D} metric depending on their dimension. The used metric is also known as L2-norm.
-     * 
+     *
      * @param n1 a {@code Node} with two or three dimensional coordinates
      * @param n2 a {@code Node} with two or three dimensional coordinates
      * @return the {@code EUC_2D} or {@code EUC_3D} edge weight for nodes n1 and n2
@@ -917,7 +952,7 @@ public class TSPLIBImporter<V, E>
      * Computes the distance of the two nodes n1 and n2 according to the {@code MAX_2D} or
      * {@code MAX_3D} metric depending on their dimension. The used metric is also known as
      * L&infin;-norm.
-     * 
+     *
      * @param n1 a {@code Node} with two or three dimensional coordinates
      * @param n2 a {@code Node} with two or three dimensional coordinates
      * @return the {@code MAX_2D} or {@code MAX_3D} edge weight for nodes n1 and n2
@@ -930,7 +965,7 @@ public class TSPLIBImporter<V, E>
     /**
      * Computes the distance of the two nodes n1 and n2 according to the {@code MAN_2D} or
      * {@code MAN_3D} metric depending on their dimension. The used metric is also known as L1-norm.
-     * 
+     *
      * @param n1 a {@code Node} with two or three dimensional coordinates
      * @param n2 a {@code Node} with two or three dimensional coordinates
      * @return the {@code MAN_2D} or {@code MAN_3D} edge weight for nodes n1 and n2
@@ -943,7 +978,7 @@ public class TSPLIBImporter<V, E>
     /**
      * Computes the distance of the two nodes n1 and n2 according to the {@code CEIL_2D} metric, the
      * round up version of {@code EUC_2D}. The points must have dimension two.
-     * 
+     *
      * @param n1 a {@code Node} with two or three dimensional coordinates
      * @param n2 a {@code Node} with two or three dimensional coordinates
      * @return the {@code CEIL_2D} edge weight for nodes n1 and n2
@@ -959,7 +994,7 @@ public class TSPLIBImporter<V, E>
      * used metric computes the distance between two points on a earth-like sphere, while the point
      * coordinates describe their geographical latitude and longitude. The points must have
      * dimension two.
-     * 
+     *
      * @param n1 a {@code Node} with two or three dimensional coordinates
      * @param n2 a {@code Node} with two or three dimensional coordinates
      * @return the {@code GEO} edge weight for nodes n1 and n2
@@ -992,7 +1027,7 @@ public class TSPLIBImporter<V, E>
     /**
      * Computes the distance of two the two nodes n1 and n2 according to the {@code ATT} metric. The
      * nodes must have two dimensional coordinates.
-     * 
+     *
      * @param n1 a {@code Node} with two dimensional coordinates
      * @param n2 a {@code Node} with two dimensional coordinates
      * @return the {@code ATT} edge weight for nodes n1 and n2

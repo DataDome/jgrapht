@@ -584,11 +584,9 @@ public class NetworkGenerator<V, E>
         /*
          * Upper bounds for every class of arcs.
          */
-        List<Long> upperBounds = new ArrayList<>(
-            List
-                .of(
+        List<Long> upperBounds = Arrays.asList(
                     source2TSourceUB, source2TNodeUB, source2SinkUB, tNode2TSourceUB, tNode2TNodeUB,
-                    tNode2SinkUB, tSink2TSourceUB, tSink2TNodeUB, tSink2SinkUB));
+                    tNode2SinkUB, tSink2TSourceUB, tSink2TNodeUB, tSink2SinkUB);
 
         long classBoundsSum = upperBounds.stream().mapToLong(l -> l).sum();
         if (classBoundsSum == 0) {

@@ -281,7 +281,7 @@ public final class GraphMLDemo
         /*
          * Assign random weights to the graph
          */
-        for (var e : graph1.edgeSet()) {
+        for (DefaultWeightedEdge e : graph1.edgeSet()) {
             graph1.setEdgeWeight(e, GENERATOR.nextInt(100));
         }
 

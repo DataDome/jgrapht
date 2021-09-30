@@ -19,6 +19,8 @@ package org.jgrapht.alg.clustering;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 
 import org.jgrapht.Graph;
@@ -54,17 +56,17 @@ public class GirvanNewmanClusteringTest
 
         Clustering<Integer> c1 = new GirvanNewmanClustering<>(g, 2).getClustering();
         assertEquals(c1.getNumberClusters(), 2);
-        assertEquals(Set.of(1, 2, 3, 4, 5, 6, 7), c1.getClusters().get(0));
-        assertEquals(Set.of(8, 9, 10, 11, 12, 13, 14), c1.getClusters().get(1));
+        assertEquals(new HashSet<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7)), c1.getClusters().get(0));
+        assertEquals(new HashSet<>(Arrays.asList(8, 9, 10, 11, 12, 13, 14)), c1.getClusters().get(1));
 
         Clustering<Integer> c2 = new GirvanNewmanClustering<>(g, 6).getClustering();
         assertEquals(c2.getNumberClusters(), 6);
-        assertEquals(Set.of(1, 2, 3), c2.getClusters().get(0));
-        assertEquals(Set.of(7), c2.getClusters().get(1));
-        assertEquals(Set.of(4, 5, 6), c2.getClusters().get(2));
-        assertEquals(Set.of(8), c2.getClusters().get(3));
-        assertEquals(Set.of(9, 10, 11), c2.getClusters().get(4));
-        assertEquals(Set.of(12, 13, 14), c2.getClusters().get(5));
+        assertEquals(new HashSet<>(Arrays.asList(1, 2, 3)), c2.getClusters().get(0));
+        assertEquals(new HashSet<>(Arrays.asList(7)), c2.getClusters().get(1));
+        assertEquals(new HashSet<>(Arrays.asList(4, 5, 6)), c2.getClusters().get(2));
+        assertEquals(new HashSet<>(Arrays.asList(8)), c2.getClusters().get(3));
+        assertEquals(new HashSet<>(Arrays.asList(9, 10, 11)), c2.getClusters().get(4));
+        assertEquals(new HashSet<>(Arrays.asList(12, 13, 14)), c2.getClusters().get(5));
 
         Clustering<Integer> c3 =
             new GirvanNewmanClustering<>(g, g.vertexSet().size()).getClustering();
